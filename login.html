@@ -18,10 +18,17 @@
 
 <body>
   <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div class="form-container">
+      <h2>Iniciar sesión</h2>
+      <form id="loginForm">
+        <label for="usuario">Usuario:</label> <br>
+        <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usario"> <br>
+
+        <label for="contraseña">Contraseña:</label> <br>
+        <input type="password" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña"> <br>
+
+        <button type="submit" id="btnLogin">Ingresar</button>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
