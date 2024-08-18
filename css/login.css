@@ -1,15 +1,32 @@
-.form-container{
-    background: rgba(240, 126, 31, .8);
-    margin-left: 10rem;
-    margin-right: 50rem;
-    color: white;
+body{
+    margin:0px;
 }
 
-h2{
-    text-align: center;
+main{
+    margin-right: 55rem;
+    margin-left: 10rem;
+    margin-top: 0rem;
+    box-sizing: content-box;
+}
+
+.form-container{
+    background: rgba(240, 126, 31, .8);
+    color: white;
+    border-radius: 0.5rem;
+    padding-bottom: 13rem;
+}
+
+.abs-center{
+    margin-left: 1.5rem;
 }
 
 button {
     position: relative;
 }
 
+img{
+    background: rgba(240, 126, 31, .8);
+    height: 190px;
+    width:270px;
+    border-radius: 0.5rem;
+}
