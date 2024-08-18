@@ -1,12 +1,12 @@
 body{
-    margin:0px;
+    font-family: 'Inter';
+    font-size: 15px;
 }
 
 main{
-    margin-right: 55rem;
+    margin-right: 52rem;
     margin-left: 10rem;
     margin-top: 0rem;
-    box-sizing: content-box;
 }
 
 .form-container{
@@ -14,10 +14,12 @@ main{
     color: white;
     border-radius: 0.5rem;
     padding-bottom: 13rem;
+    padding-top: 2.5rem;
 }
 
 .abs-center{
-    margin-left: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 button {
@@ -26,7 +28,7 @@ button {
 
 img{
     background: rgba(240, 126, 31, .8);
-    height: 190px;
-    width:270px;
+    height: 200px;
+    width:345x;
     border-radius: 0.5rem;
 }
