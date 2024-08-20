@@ -4,6 +4,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     var contraseña = document.getElementById('contraseña').value;
 
     if (usuario !== "" && contraseña !== "") {
+        localStorage.setItem('loggedIn', true);
         window.location.href = "index.html";
     } else {
         alert("Usuario o contraseña imcompletos.");
