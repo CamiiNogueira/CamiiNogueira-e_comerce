@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>JUGUETES</title>
+</head>
+<body>
+    <section class="contenido">
+        <div class="mostrador" id="mostrador">
+            <div class="fila">
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Autos/prod50921_1.jpg" alt="">
+                    </div>
+                    <p class="descripcion">AUTO ROJO</p>
+                    <span class="precio">USD 20.000</span>
+                </div>
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Autos/prod50925_1.jpg" alt="">
+                    </div>
+                    <p class="descripcion" id>PELOTA </p>
+                    <span class="precio">$ 1.800</span>
+                </div>
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Juguetes/prod50744_1.jpg" alt="">
+                    </div>
+                    <p class="descripcion">BICICLETA DE NIÑO
+                    </p>
+                    <span class="precio">$ 3.600</span>
+                </div>
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Juguetes/cat102_1.jpg" alt="">
+                    </div>
+                    <p class="descripcion">SET PIEZAS DE MADERAS</p>
+                    <span class="precio">$ 1.250</span>
+                </div>
+            </div>
+            <div class="fila">
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Nueva carpeta/819872b03a440c6ced333f73eee73cce.jpg" alt="">
+                    </div>
+                    <p class="descripcion">AUTO A BATERIA</p>
+                    <span class="precio">$ 13.000</span>
+                </div>
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Nueva carpeta/9d506f01835585212463e4e2a7866105.jpg" alt="">
+                    </div>
+                    <p class="descripcion">PARRILLA</p>
+                    <span class="precio">$ 2.000</span>
+                </div>
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Nueva carpeta/a6d22966e3e35f9327271c5d415afd0e.jpg" alt="">
+                    </div>
+                    <p class="descripcion">UNICORNIO</p>
+                    <span class="precio">$ 4.000</span>
+                </div>
+                <div class="item" onclick="cargar(this)">
+                    <div class="contenedor-foto">
+                        <img src="img/Nueva carpeta/caminador.jpg" alt="">
+                    </div>
+                    <p class="descripcion">CAMINADOR</p>
+                    <span class="precio">$ 1.800</span>
+                </div>
+            </div> 
+        </div>
+        <!-- CONTENEDOR DEL ITEM SELECCIONADO -->
+        <div class="seleccion" id="seleccion">
+            <div class="cerrar" onclick="cerrar()">
+                &#x2715
+            </div>
+            <div class="info">
+                <img src="img/Nueva carpeta/muñeca.jpg" alt="" id="img">
+                <h2 id="modelo">MUÑECA</h2>
+                <p id="descripcion">Muñeca brattz</p>
+
+                <span class="precio" id="precio">$ 1.300</span>
+
+                <div class="fila">
+                    <div class="cantidad">
+                        <label for="">CANTIDAD</label>
+                        <select name="" id="">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                    </div>
+                    <button>AGREGAR AL CARRITO</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
