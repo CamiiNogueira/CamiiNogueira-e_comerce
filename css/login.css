@@ -4,7 +4,7 @@ body{
 }
 
 .login{
-    margin-right: 52rem;
+    margin-right: 53rem;
     margin-left: 10rem;
     margin-top: 0rem;
 }
@@ -13,7 +13,7 @@ body{
     background: rgba(240, 126, 31, .8);
     color: white;
     border-radius: 0.5rem;
-    padding-bottom: 13rem;
+    padding-bottom: 11.5rem;
     padding-top: 2.5rem;
 }
 
