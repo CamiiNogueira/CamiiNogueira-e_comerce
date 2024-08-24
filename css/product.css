@@ -16,7 +16,6 @@
     margin-top: 0px;
     position: relative;
     justify-content: center;
-    transition: right .5s ease;
 }
 
 .card{
@@ -60,7 +59,7 @@ img{
     top: 15%;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: right 0.3s ease;
+    transition: 0.5s ease;
 }
 
 .cerrar{
