@@ -7,14 +7,17 @@ function showData(data) {
 
 data.products.forEach(product => {
     fila.innerHTML += `
-    <div class="item" onclick="cargar(this)">
+    <div class="card col-3" onclick="cargar(this)">
+    <div class="card-body">
         <div class="contenedor-foto">
             <img src="${product.image}" alt="${product.name}">
         </div>
         <h2 class="modelo">${product.name}</h2>
-        <span class="precio">Precio: ${product.cost} ${product.currency}</span>
+        <span class="precio">${product.cost} ${product.currency}</span><br>
+        <br>
         <p class="descripcion">${product.description}</p>
         <p class="vendidos">Vendidos: ${product.soldCount}</p>
+    </div>
     </div>
     `;
     });
@@ -45,13 +48,17 @@ let imgSeleccionada = document.getElementById("img");
 let modeloSeleccionado = document.getElementById("modelo");
 let descripSeleccionada = document.getElementById("descripcion");
 let precioSeleccionado = document.getElementById("precio");
+let vendidoSeleccionado = document.getElementById("vendidos");
+
 
 function cargar(item){
     quitarBordes();
-    mostrador.style.width = "70%";
-    seleccion.style.width = "40%";
+    mostrador.style.width = "90%"
+    mostrador.style.transform ='translateX(-2vw)';
+    seleccion.style.width = "30%";
     seleccion.style.opacity = "1";
-    item.style.border = "2px solid red";
+    seleccion.style.border = "1px solid black";
+    item.style.border = "1px solid black";
 /*Aparezca la imagen seleccionada en el recuadro*/
     imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
 
@@ -61,10 +68,12 @@ function cargar(item){
 
     descripSeleccionada.innerHTML = item.getElementsByTagName("p")[0].innerHTML;
 
+    vendidoSeleccionado.innerHTML = item.getElementsByClassName("vendidos")[0].innerHTML;
 }
 
 function cerrar(){
-    mostrador.style.width = "100%";
+    mostrador.style.width = "100%"
+    mostrador.style.transform ='translateX(0vw)';
     seleccion.style.width = "0%";
     seleccion.style.opacity = "0";
 
@@ -72,8 +81,8 @@ function cerrar(){
 }
 
 function quitarBordes(){
-    var items = document.getElementsByClassName("item");
+    var items = document.getElementsByClassName("card");
     for(i=0;i <items.length; i++){
-        items[i].style.border = "none";
+        items[i].style.border = "1px solid lightgray";
     }
 }
