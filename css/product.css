@@ -14,7 +14,7 @@
 .contenido{
     margin-left: 90px;
     margin-top: 0px;
-    position: relative;
+    position: relative; 
 }
 
 .card{
@@ -74,4 +74,40 @@ img{
 
 .info img{
     width: 20rem;
+}
+
+@media only screen and (max-width: 375px) {
+    .contenido {
+        margin-left: 10px;
+    }
+
+    .card {
+        width: 100%;
+        margin-right: 0;
+    }
+    img {
+        width: 100%;
+    }
+
+    .info img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 376px) {
+    .contenido {
+        margin-left: 20px;
+    }
+
+    .card {
+        width: 50%;
+        margin-right: 10px;
+    }
+    img {
+        width: 100%;
+    }
+
+    .info img {
+        width: 100%;
+    }
 }

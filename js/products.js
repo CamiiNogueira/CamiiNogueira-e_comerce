@@ -52,32 +52,39 @@ let vendidoSeleccionado = document.getElementById("vendidos");
 
 
 function cargar(item){
-    quitarBordes();
+    if (window.innerWidth >= 376 && window.innerHeight <= 768){
+       quitarBordes();
     mostrador.style.width = "80%"
     mostrador.style.transform ='translateX(-3vw)';
     seleccion.style.width = "30%";
     seleccion.style.opacity = "1";
     seleccion.style.border = "1px solid black";
-    item.style.border = "1px solid black";
-/*Aparezca la imagen seleccionada en el recuadro*/
+    item.style.border = "1px solid black"; 
+    /*Aparezca la imagen seleccionada en el recuadro*/
     imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
 
     modeloSeleccionado.innerHTML =  item.getElementsByTagName("h2")[0].innerHTML;
 
-    precioSeleccionado.innerHTML =  item.getElementsByTagName("span")[0].innerHTML;
+    precioSeleccionado.innerHTML =  item.getElementsByTagName("span")
+   [0].innerHTML;
 
     descripSeleccionada.innerHTML = item.getElementsByTagName("p")[0].innerHTML;
 
     vendidoSeleccionado.innerHTML = item.getElementsByClassName("vendidos")[0].innerHTML;
 }
+}
+    
+
 
 function cerrar(){
-    mostrador.style.width = "100%"
+    if(window.innerWidth >= 376 && window.innerHeight <= 768){
+      mostrador.style.width = "100%"
     mostrador.style.transform ='translateX(0vw)';
     seleccion.style.width = "0%";
     seleccion.style.opacity = "0";
 
-    quitarBordes();
+    quitarBordes();  
+    }   
 }
 
 function quitarBordes(){
