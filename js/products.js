@@ -51,10 +51,8 @@ let precioSeleccionado = document.getElementById("precio");
 let vendidoSeleccionado = document.getElementById("vendidos");
 
 
-
-    if (window.innerWidth >= 376 && window.innerHeight <= 768){
-        function cargar(item){ 
-            quitarBordes();
+   function cargar(item){ 
+    if (window.innerWidth > 1000){  quitarBordes();
     mostrador.style.width = "80%"
     mostrador.style.transform ='translateX(-3vw)';
     seleccion.style.width = "30%";
@@ -76,9 +74,9 @@ let vendidoSeleccionado = document.getElementById("vendidos");
 }
     
 
-
-function cerrar(){
-    if(window.innerWidth >= 376 && window.innerHeight <= 768){
+{
+    function cerrar(){
+    
       mostrador.style.width = "100%"
     mostrador.style.transform ='translateX(0vw)';
     seleccion.style.width = "0%";

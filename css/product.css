@@ -97,12 +97,11 @@ img{
 
 @media only screen and (max-width: 768px) and (min-width: 376px) {
     .contenido {
-        margin-left: 20px;
+        margin-left: 100px;
     }
 
     .card {
-        width: 50%;
-        margin-right: 10px;
+        width: 40%;
     }
     img {
         width: 100%;
