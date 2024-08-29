@@ -51,9 +51,10 @@ let precioSeleccionado = document.getElementById("precio");
 let vendidoSeleccionado = document.getElementById("vendidos");
 
 
-function cargar(item){
+
     if (window.innerWidth >= 376 && window.innerHeight <= 768){
-       quitarBordes();
+        function cargar(item){ 
+            quitarBordes();
     mostrador.style.width = "80%"
     mostrador.style.transform ='translateX(-3vw)';
     seleccion.style.width = "30%";
