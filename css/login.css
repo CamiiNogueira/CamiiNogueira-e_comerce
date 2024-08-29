@@ -39,3 +39,30 @@ button {
     border-bottom: 1rem;
     border-color: #ffffff;
 }
+
+@media only screen and (max-width: 375px) { 
+    .login{
+        margin-left: 3rem;
+        margin-right: 3rem; 
+    }
+
+
+    .abs-center{
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+
+    .form-container{
+        padding-bottom: 14.6rem;
+        padding-top: 2rem;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    body {
+        background: fixed;
+        background-position: -60vw;
+    }
+}
