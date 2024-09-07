@@ -2,7 +2,6 @@ const API_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json
 
 function setProdId(id) {
     localStorage.setItem("prodID", id);
-    window.location = "product-info.html"
 }
 
 // Función para mostrar los datos en el DOM
@@ -11,7 +10,7 @@ function showData(data) {
     fila.innerHTML = '';
     data.products.forEach(product => {
         fila.innerHTML += `
-        <div class="card col-3" onclick="cargar(this)">
+        <div class="card col-3" onclick="setProdId(${product.id}); cargar(this)">
         <div class="card-body">
             <div class="contenedor-foto">
                 <img src="${product.image}" alt="${product.name}">
@@ -25,7 +24,6 @@ function showData(data) {
         </div>
         `;
     });
-    fila.setAttribute('data-id', product.id);
 }
 
 function getAPIData(url) {
@@ -74,12 +72,12 @@ function cargar(item){
         vendidoSeleccionado.innerHTML = item.getElementsByClassName("vendidos")[0].innerHTML;
 
         boton.addEventListener('click', () => {
-            const productId = fila.getAttribute('data-id');
-            setProdId(productId);
+            const productId = localStorage.getItem('prodID');
+            window.location = "product-info.html"
         });
     } else {
-        const productId = fila.getAttribute('data-id');
-        setProdId(productId);
+        const productId = localStorage.getItem('prodID');
+        window.location = "product-info.html"
     }
 }
     
