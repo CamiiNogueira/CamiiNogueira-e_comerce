@@ -79,14 +79,14 @@ function cargar(item){
         const productId = localStorage.getItem('prodID');
         window.location = "product-info.html"
     }
+}
 
-  function cerrar() {
-    mostrador.style.width = "100%";
-    mostrador.style.transform = "translateX(0vw)";
-    seleccion.style.width = "0%";
-    seleccion.style.opacity = "0";
-    quitarBordes();
-  }
+function cerrar() {
+  mostrador.style.width = "100%";
+  mostrador.style.transform = "translateX(0vw)";
+  seleccion.style.width = "0%";
+  seleccion.style.opacity = "0";
+  quitarBordes();
 }
 
 function quitarBordes() {
