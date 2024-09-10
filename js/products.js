@@ -86,7 +86,6 @@ function cargar(item){
     quitarBordes();
   }
 
-
 function quitarBordes() {
   var items = document.getElementsByClassName("card");
   for (i = 0; i < items.length; i++) {
