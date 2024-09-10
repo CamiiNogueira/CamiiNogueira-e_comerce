@@ -15,6 +15,7 @@ function showData(data) {
             <div class="contenedor-foto">
                 <img src="${product.image}" alt="${product.name}">
             </div>
+            <br>
             <h2 class="modelo">${product.name}</h2>
             <span class="precio">${product.cost} ${product.currency}</span><br>
             <br>
@@ -58,8 +59,8 @@ let boton = document.getElementById("botón");
 function cargar(item){ 
     if (window.innerWidth > 1000){  
         quitarBordes();
-        mostrador.style.width = "80%"
-        mostrador.style.transform ='translateX(-3vw)';
+        mostrador.style.width = "70%"
+        mostrador.style.transform ='translateX(-4vw)';
         seleccion.style.width = "30%";
         seleccion.style.opacity = "1";
         seleccion.style.border = "1px solid black";
@@ -82,7 +83,7 @@ function cargar(item){
 }
 
 function cerrar() {
-  mostrador.style.width = "100%";
+  mostrador.style.width = "90%";
   mostrador.style.transform = "translateX(0vw)";
   seleccion.style.width = "0%";
   seleccion.style.opacity = "0";
