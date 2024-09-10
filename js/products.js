@@ -1,4 +1,4 @@
-const API_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+const API_URL = "https://japceibal.github.io/emercado-api/cats_products";
 
 function setProdId(id) {
     localStorage.setItem("prodID", id);
@@ -24,26 +24,25 @@ function showData(data) {
         </div>
         `;
     });
-}
 
 function getAPIData(url) {
-    return fetch(url)
-    .then(response => {
-        if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
+    const categoriaId = localStorage.getItem("catID");
+    return fetch(`${url}/${categoriaId}.json`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
     })
-    .then(data => {
-        showData(data);
+    .then((data) => {
+      showData(data);
     })
-    .catch(error => {
-        console.error('Hubo un problema con el fetch:', error);
+    .catch((error) => {
+      console.error("Hubo un problema con el fetch:", error);
     });
 }
 
 getAPIData(API_URL);
-
 
 let mostrador = document.getElementById("mostrador");
 let seleccion = document.getElementById("seleccion");
@@ -53,7 +52,6 @@ let descripSeleccionada = document.getElementById("descripcion");
 let precioSeleccionado = document.getElementById("precio");
 let vendidoSeleccionado = document.getElementById("vendidos");
 let boton = document.getElementById("botón");
-
 
 function cargar(item){ 
     if (window.innerWidth > 1000){  
@@ -80,24 +78,21 @@ function cargar(item){
         window.location = "product-info.html"
     }
 }
-    
-{
-    function cerrar(){
-    
-      mostrador.style.width = "100%"
-    mostrador.style.transform ='translateX(0vw)';
+  
+  function cerrar() {
+    mostrador.style.width = "100%";
+    mostrador.style.transform = "translateX(0vw)";
     seleccion.style.width = "0%";
     seleccion.style.opacity = "0";
-
-    quitarBordes();  
-    }   
+    quitarBordes();
+  }
 }
 
-function quitarBordes(){
-    var items = document.getElementsByClassName("card");
-    for(i=0;i <items.length; i++){
-        items[i].style.border = "1px solid lightgray";
-    }
+function quitarBordes() {
+  var items = document.getElementsByClassName("card");
+  for (i = 0; i < items.length; i++) {
+    items[i].style.border = "1px solid lightgray";
+  }
 }
 
 
