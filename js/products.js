@@ -77,7 +77,6 @@ function cargar(item){
         const productId = localStorage.getItem('prodID');
         window.location = "product-info.html"
     }
-}
   
   function cerrar() {
     mostrador.style.width = "100%";
