@@ -122,8 +122,9 @@ img{
     font-family: Arial, sans-serif;
 
 }
-.carusel {
-    position: relative;
+.carrusel {
+    display: flex;
+    justify-content: space-evenly;
     max-width: 700px;
 }
 
@@ -132,24 +133,16 @@ img{
     width: 100%;
     display: none;
 }
-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(234, 57, 89, 0.8);
-    color: white;
+
+.anterior, .siguiente {
+    position: relative;
+    background-color: transparent;
+    color: black;
     border: none;
     padding: 5px;
     cursor: pointer;
 }
-button.anterior {
-    position:relative;
-    display:flex;
-    align-items: center;
-}
-button.siguiente{
-    background-color: rgba(234, 57, 89, 0.8);
-}
+
 .container {
     padding: 16px;
 }

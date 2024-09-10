@@ -6,6 +6,10 @@ function setProdId(id) {
 
 // Función para mostrar los datos en el DOM
 function showData(data) {
+  let valor = data.catName;
+  document.getElementById('title').textContent = valor;
+  let desc = "Verás aquí los/as " +  valor.toLowerCase() + " disponibles actualmente.";
+  document.getElementById('descrip').textContent = desc;
     const fila = document.getElementById("fila");
     fila.innerHTML = '';
     data.products.forEach(product => {
