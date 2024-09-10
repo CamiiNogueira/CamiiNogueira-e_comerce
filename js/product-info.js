@@ -15,6 +15,7 @@ function showData(product) {
           </div>
         <button class="siguiente" onclick="changeSlide(1)">&#10095;</button>     
       </div> 
+      <br>
       <h2 class="modelo">${product.name}</h2>
       <span class="precio">$${product.cost} ${product.currency}</span><br>
       <br>
