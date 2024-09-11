@@ -43,15 +43,14 @@
       <h4> Autos</h4>
       <p> Verás aquí los autos disponibles actualmente.</p>
     </div>
-  <div class="container">
+    
+   <div class="container">
     <div class="row">
       <div class="col text-end">
         <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
           <input type="radio" class="btn-check" name="options" id="sortAscPrice">
           <label class="btn btn-light" for="sortAscPrice"><i class="fas fa-sort-amount-up mr-1"></i>$</label>
           <input type="radio" class="btn-check" name="options" id="sortDescPrice">
-          <label class="btn btn-light" for="sortDescPrice"><i class="fas fa-sort-amount-down mr-1"></i>$</label>
-          <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
           <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i>Rel.</label>
         </div>
       </div>
@@ -78,7 +77,6 @@
         </div>
       </div>
     </div>
-  </div>
     <div class="contenido" id="mostrador">
         <div class="row" id="fila"></div>
     </div>
@@ -93,6 +91,9 @@
         <br>
         <p id="descripcion"></p>
         <p id="vendidos"></p>
+      </div>
+      <div>
+        <button class="btn btn-primary" id="botón">Ver más</button>
       </div>
     </div>
   </main>
