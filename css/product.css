@@ -10,12 +10,7 @@
 
 #mostrador{
     position: relative;
-    margin-left: 5%;
-    width:95%;
-}
-
-#fila{
-    width: 96%;
+    margin-left: 3%;
 }
 
 .card{
@@ -86,6 +81,7 @@ img{
 
     #mostrador {
         width: 90%;
+        margin-left: 2%;
     }
 
     .col-3{
@@ -113,7 +109,7 @@ img{
 
 @media only screen and (max-width: 1000px) and (min-width: 561px) and (min-height: 600px){
     .card {
-        width: 40%;
+        width: 45%;
     }
 
     img {
@@ -121,7 +117,7 @@ img{
     }
     
     #mostrador {
-        margin-left: 15%;
+        margin-left: 10%;
         width: 85%;
     }
 }

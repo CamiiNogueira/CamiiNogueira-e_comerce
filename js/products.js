@@ -109,8 +109,8 @@ let boton = document.getElementById("botón");
 function cargar(item){ 
     if (window.innerWidth > 1000){  
         quitarBordes();
-        mostrador.style.width = "70%"
-        mostrador.style.transform ='translateX(-4vw)';
+        mostrador.style.width = "80%"
+        mostrador.style.transform ='translateX(-6vw)';
         seleccion.style.width = "30%";
         seleccion.style.opacity = "1";
         seleccion.style.border = "1px solid black";
@@ -133,7 +133,7 @@ function cargar(item){
 }
 
 function cerrar() {
-  mostrador.style.width = "95%";
+  mostrador.style.width = "100%";
   mostrador.style.transform = "translateX(0vw)";
   seleccion.style.width = "0%";
   seleccion.style.opacity = "0";
