@@ -11,7 +11,6 @@
 }
 
 #mostrador{
-    margin-left: 10vw;
     position: relative; 
 }
 
@@ -19,7 +18,7 @@
     width: 18rem;
     cursor: pointer;
     margin-bottom: 25px;
-    margin-right: 20px;
+    margin-left: 2vw;
     align-items: center;
 }
 
@@ -111,12 +110,12 @@ img{
 }
 
 @media only screen and (max-width: 1020px) and (min-width: 561px) and (min-height: 700px){
-    #mostrador {
-        margin-left: 100px;
-    }
-
     .card {
         width: 40%;
+    }
+
+    #mostrador {
+        margin-left: 50px;
     }
 
     img {
