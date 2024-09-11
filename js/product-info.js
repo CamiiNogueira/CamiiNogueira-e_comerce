@@ -4,23 +4,24 @@ function showData(product) {
     const productInfoDiv = document.getElementById('product-info');
     productInfoDiv.innerHTML = `
     <div class="card-body">
-    <div class="carrusel">
-        <button class="anterior" onclick="changeSlide(-1)">&#10094;</button>
+        <div class="carrusel">
+         <button class="anterior" onclick="changeSlide(-1)">&#10094;</button>
          <div class="slides">
-            <img src="img/prod${product.id}_1.jpg" alt="Imagen 1">
-            <img src="img/prod${product.id}_2.jpg" alt="Imagen 2">
-            <img src="img/prod${product.id}_3.jpg" alt="Imagen 3">
-            <img src="img/prod${product.id}_4.jpg" alt="Imagen 4">
-            <img src="img/prod${product.id}_5.jpg" alt="Imagen 5">
+             <img src="img/prod${product.id}_1.jpg" alt="Imagen 1">
+             <img src="img/prod${product.id}_2.jpg" alt="Imagen 2">
+             <img src="img/prod${product.id}_3.jpg" alt="Imagen 3">
+             <img src="img/prod${product.id}_4.jpg" alt="Imagen 4">
+             <img src="img/prod${product.id}_5.jpg" alt="Imagen 5">
           </div>
-        <button class="siguiente" onclick="changeSlide(1)">&#10095;</button>     
+         <button class="siguiente" onclick="changeSlide(1)">&#10095;</button>     
       </div> 
-      <br>
-      <h2 class="modelo">${product.name}</h2>
-      <span class="precio">$${product.cost} ${product.currency}</span><br>
-      <br>
-      <p class="descripcion">${product.description}</p>
-      <p class="vendidos">${product.soldCount} productos vendidos.</p>
+      <div class="container info">
+         <h2 class="modelo">${product.name}</h2>
+         <span class="precio">$${product.cost} ${product.currency}</span><br>
+         <br>
+         <p class="descripcion">${product.description}</p>
+         <p class="vendidos">${product.soldCount} productos vendidos.</p>
+      </div>
     </div>   
     `;
 }
