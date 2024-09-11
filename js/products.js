@@ -86,7 +86,7 @@ function getAPIData(url) {
       }
       return response.json();
     })
-    .then(data => {
+    .then((data) => {
         allProducts = data.products; // Guardamos los productos en la variable global
         showData(allProducts); // Mostramos los productos sin filtrar
     })
