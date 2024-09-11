@@ -4,11 +4,59 @@ function setProdId(id) {
     localStorage.setItem("prodID", id);
 }
 
+function filterByPrice(products) {
+    const minPrice = document.getElementById('rangeFilterCountMin').value;
+    const maxPrice = document.getElementById('rangeFilterCountMax').value;
+
+    const min = parseInt(minPrice) || 0;
+    const max = parseInt(maxPrice) || Infinity;
+
+    return products.filter(product => product.cost >= min && product.cost <= max);
+}
+
+function sortProducts(products) {
+    const sortAscPrice = document.getElementById('sortAscPrice').checked;
+    const sortDescPrice = document.getElementById('sortDescPrice').checked;
+    const sortByCount = document.getElementById('sortByCount').checked;
+
+    if (sortAscPrice) {
+        products.sort((a, b) => a.cost - b.cost); // Ordenar por precio ascendente
+    } else if (sortDescPrice) {
+        products.sort((a, b) => b.cost - a.cost); // Ordenar por precio descendente
+    } else if (sortByCount) {
+        products.sort((a, b) => b.soldCount - a.soldCount); // Ordenar por relevancia
+    }
+
+    return products;
+}
+
+function applyFiltersAndShowData() {
+    let filteredProducts = filterByPrice(allProducts);
+    let sortedProducts = sortProducts(filteredProducts);
+    showData(sortedProducts);
+}
+
+
+document.getElementById('rangeFilterCount').addEventListener('click', applyFiltersAndShowData);
+document.getElementById('sortAscPrice').addEventListener('change', applyFiltersAndShowData);
+document.getElementById('sortDescPrice').addEventListener('change', applyFiltersAndShowData);
+document.getElementById('sortByCount').addEventListener('change', applyFiltersAndShowData);
+
+document.getElementById('clearRangeFilter').addEventListener('click', function () {
+    document.getElementById('rangeFilterCountMin').value = '';
+    document.getElementById('rangeFilterCountMax').value = '';
+    
+    showData(allProducts); // Mostrar todos los productos
+    });
+
+
+
+
 // Función para mostrar los datos en el DOM
-function showData(data) {
+function showData(products) {
     const fila = document.getElementById("fila");
     fila.innerHTML = '';
-    data.products.forEach(product => {
+    products.forEach(product => {
         fila.innerHTML += `
         <div class="card col-3" onclick="setProdId(${product.id}); cargar(this)">
         <div class="card-body">
@@ -27,6 +75,7 @@ function showData(data) {
     }); 
 }
 
+let allProducts = [];
 
 function getAPIData(url) {
     const categoriaId = localStorage.getItem("catID");
@@ -38,7 +87,8 @@ function getAPIData(url) {
       return response.json();
     })
     .then((data) => {
-      showData(data);
+        allProducts = data.products; // Guardamos los productos en la variable global
+        showData(allProducts); // Mostramos los productos sin filtrar
     })
     .catch((error) => {
       console.error("Hubo un problema con el fetch:", error);
