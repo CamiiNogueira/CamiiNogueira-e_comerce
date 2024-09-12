@@ -4,21 +4,77 @@ function setProdId(id) {
     localStorage.setItem("prodID", id);
 }
 
+function filterByPrice(products) {
+    const minPrice = document.getElementById('rangeFilterCountMin').value;
+    const maxPrice = document.getElementById('rangeFilterCountMax').value;
+
+    const min = parseInt(minPrice) || 0;
+    const max = parseInt(maxPrice) || Infinity;
+
+    return products.filter(product => product.cost >= min && product.cost <= max);
+}
+
+function sortProducts(products) {
+    const sortAscPrice = document.getElementById('sortAscPrice').checked;
+    const sortDescPrice = document.getElementById('sortDescPrice').checked;
+    const sortByCount = document.getElementById('sortByCount').checked;
+
+    if (sortAscPrice) {
+        products.sort((a, b) => a.cost - b.cost); // Ordenar por precio ascendente
+    } else if (sortDescPrice) {
+        products.sort((a, b) => b.cost - a.cost); // Ordenar por precio descendente
+    } else if (sortByCount) {
+        products.sort((a, b) => b.soldCount - a.soldCount); // Ordenar por relevancia
+    }
+
+    return products;
+}
+
+function applyFiltersAndShowData() {
+    let filteredProducts = filterByPrice(allProducts);
+    let sortedProducts = sortProducts(filteredProducts);
+    showData(sortedProducts);
+}
+
+
+document.getElementById('rangeFilterCount').addEventListener('click', applyFiltersAndShowData);
+document.getElementById('sortAscPrice').addEventListener('change', applyFiltersAndShowData);
+document.getElementById('sortDescPrice').addEventListener('change', applyFiltersAndShowData);
+document.getElementById('sortByCount').addEventListener('change', applyFiltersAndShowData);
+
+document.getElementById('clearRangeFilter').addEventListener('click', function () {
+    document.getElementById('rangeFilterCountMin').value = '';
+    document.getElementById('rangeFilterCountMax').value = '';
+    
+    showData(allProducts); // Mostrar todos los productos
+    });
+
+    document.getElementById('searchInput').addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+        const filteredProducts = allProducts.filter(product => {
+            const name = product.name ? product.name.toLowerCase() : '';
+            const description = product.description ? product.description.toLowerCase() : '';
+            return name.includes(searchTerm) || description.includes(searchTerm);
+        });
+        showData(filteredProducts);
+    });    
+    
 // Función para mostrar los datos en el DOM
-function showData(data) {
-  let valor = data.catName;
-  document.getElementById('title').textContent = valor;
-  let desc = "Verás aquí los/as " +  valor.toLowerCase() + " disponibles actualmente.";
-  document.getElementById('descrip').textContent = desc;
+
+function showData(products) {
+    document.getElementById('title').textContent = categoria;
+    let desc = "Verás aquí los/as " +  categoria.toLowerCase() + " disponibles actualmente.";
+    document.getElementById('descrip').textContent = desc;    
     const fila = document.getElementById("fila");
     fila.innerHTML = '';
-    data.products.forEach(product => {
+    products.forEach(product => {
         fila.innerHTML += `
         <div class="card col-3" onclick="setProdId(${product.id}); cargar(this)">
         <div class="card-body">
             <div class="contenedor-foto">
                 <img src="${product.image}" alt="${product.name}">
             </div>
+            <br>
             <h2 class="modelo">${product.name}</h2>
             <span class="precio">${product.cost} ${product.currency}</span><br>
             <br>
@@ -30,6 +86,8 @@ function showData(data) {
     }); 
 }
 
+let categoria = '';
+let allProducts = [];
 
 function getAPIData(url) {
     const categoriaId = localStorage.getItem("catID");
@@ -41,7 +99,9 @@ function getAPIData(url) {
       return response.json();
     })
     .then((data) => {
-      showData(data);
+        categoria = data.catName;
+        allProducts = data.products; // Guardamos los productos en la variable global
+        showData(allProducts); // Mostramos los productos sin filtrar
     })
     .catch((error) => {
       console.error("Hubo un problema con el fetch:", error);
@@ -63,7 +123,7 @@ function cargar(item){
     if (window.innerWidth > 1000){  
         quitarBordes();
         mostrador.style.width = "80%"
-        mostrador.style.transform ='translateX(-3vw)';
+        mostrador.style.transform ='translateX(-6vw)';
         seleccion.style.width = "30%";
         seleccion.style.opacity = "1";
         seleccion.style.border = "1px solid black";
