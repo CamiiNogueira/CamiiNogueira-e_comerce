@@ -49,9 +49,16 @@ document.getElementById('clearRangeFilter').addEventListener('click', function (
     showData(allProducts); // Mostrar todos los productos
     });
 
-
-
-
+    document.getElementById('searchInput').addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase();
+        const filteredProducts = allProducts.filter(product => {
+            const name = product.name ? product.name.toLowerCase() : '';
+            const description = product.description ? product.description.toLowerCase() : '';
+            return name.includes(searchTerm) || description.includes(searchTerm);
+        });
+        showData(filteredProducts);
+    });    
+    
 // Función para mostrar los datos en el DOM
 function showData(products) {
     const fila = document.getElementById("fila");
