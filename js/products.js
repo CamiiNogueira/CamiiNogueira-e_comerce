@@ -127,6 +127,7 @@ function cargar(item){
         seleccion.style.width = "30%";
         seleccion.style.opacity = "1";
         seleccion.style.border = "1px solid black";
+        seleccion.style.zIndex = "10"; 
         item.style.border = "1px solid black"; 
         /*Aparezca la imagen seleccionada en el recuadro*/
         imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
