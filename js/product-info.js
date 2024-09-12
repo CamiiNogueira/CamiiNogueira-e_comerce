@@ -18,6 +18,9 @@ function showData(product) {
                 <div class="carousel-item">
                     <img src="img/prod${product.id}_4.jpg" class="d-block w-100" alt="...">
                 </div>
+                <div class="carousel-item">
+                    <img src="img/prod${product.id}_5.jpg" class="d-block w-100" alt="...">
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -57,19 +60,3 @@ function getAPIData(url) {
 }
 
 getAPIData(API_URL);
-
-let currentSlide = 0;
-showSlide(currentSlide);
-function showSlide(index) {
-    const slides = document.querySelectorAll('.slides img');
-    if (index >= slides.length) currentSlide = 0;
-    if (index < 0) currentSlide = slides.length - 1;
-    slides.forEach((slide, i) => {
-        slide.style.display = i === currentSlide ? 'block' : 'none';
-    });
-}
-
-function changeSlide(n) {
-    showSlide(currentSlide += n);
-}
-
