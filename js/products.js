@@ -60,7 +60,11 @@ document.getElementById('clearRangeFilter').addEventListener('click', function (
     });    
     
 // Función para mostrar los datos en el DOM
+
 function showData(products) {
+    document.getElementById('title').textContent = categoria;
+    let desc = "Verás aquí los/as " +  categoria.toLowerCase() + " disponibles actualmente.";
+    document.getElementById('descrip').textContent = desc;    
     const fila = document.getElementById("fila");
     fila.innerHTML = '';
     products.forEach(product => {
@@ -82,6 +86,7 @@ function showData(products) {
     }); 
 }
 
+let categoria = '';
 let allProducts = [];
 
 function getAPIData(url) {
@@ -94,6 +99,7 @@ function getAPIData(url) {
       return response.json();
     })
     .then((data) => {
+        categoria = data.catName;
         allProducts = data.products; // Guardamos los productos en la variable global
         showData(allProducts); // Mostramos los productos sin filtrar
     })
