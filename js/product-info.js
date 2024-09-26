@@ -61,4 +61,32 @@ function getAPIData(url) {
 
 getAPIData(API_URL);
 
+document.addEventListener('DOMContentLoaded', function() {
+    const relatedProducts = [
+        { name: 'Producto 1', image: 'producto1.jpg', description: 'Descripción del producto 1' },
+        { name: 'Producto 2', image: 'producto2.jpg', description: 'Descripción del producto 2' },
+        { name: 'Producto 3', image: 'producto3.jpg', description: 'Descripción del producto 3' }
+    ];
+
+    const container = document.getElementById('related-products-container');
+
+    relatedProducts.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+
+        const productImage = document.createElement('img');
+        productImage.src = product.image;
+        productCard.appendChild(productImage);
+
+        const productName = document.createElement('h3');
+        productName.textContent = product.name;
+        productCard.appendChild(productName);
+
+        const productDescription = document.createElement('p');
+        productDescription.textContent = product.description;
+        productCard.appendChild(productDescription);
+
+        container.appendChild(productCard);
+    });
+});
 
