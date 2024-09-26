@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         productImage.src = product.image;
         productCard.appendChild(productImage);
 
-        const productName = document.createElement('h3');
+        const productName = document.createElement('h2');
         productName.textContent = product.name;
         productCard.appendChild(productName);
 
@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         productDescription.textContent = product.description;
         productCard.appendChild(productDescription);
 
+        container.appendChild(productCard);
     });
     });
 
