@@ -62,3 +62,7 @@ function getAPIData(url) {
 getAPIData(API_URL);
 
 
+function setCatID(id) {
+    localStorage.setItem("catID", id);
+    window.location = "products-info.html"
+}
