@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         productDescription.textContent = product.description;
         productCard.appendChild(productDescription);
 
-        container.appendChild(productCard);
     });
-});
+    });
+
 
