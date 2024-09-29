@@ -40,7 +40,21 @@ function showData(product) {
         </div>
     </div>   
     `;
+    const relatedProductsDiv = document.getElementById('related-products-container');
+    relatedProductsDiv.innerHTML = '';
+    product.relatedProducts.forEach(products => {
+        relatedProductsDiv.innerHTML += `
+            <div class="product-card">
+                <div class="contenedor-foto">
+                    <img src="${products.image}" alt="${products.name}">
+                </div>
+                <br>
+                <h2 class="modelo">${products.name}</h2>
+            </div>
+        `;
+    }); 
 }
+
 document.addEventListener("DOMContentLoaded", function(e){
     const productId = localStorage.getItem('prodID');
     getJSONData(`${PRODUCT_INFO_URL}/${productId}.json`).then(function(resultObj){
