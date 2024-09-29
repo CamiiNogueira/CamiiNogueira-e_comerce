@@ -41,24 +41,16 @@ function showData(product) {
     </div>   
     `;
 }
-
-function getAPIData(url) {
+document.addEventListener("DOMContentLoaded", function(e){
     const productId = localStorage.getItem('prodID');
-    return fetch(`${url}/${productId}.json`)
-    .then(response => {
-        if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
+    getJSONData(`${PRODUCT_INFO_URL}/${productId}.json`).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            showData(resultObj.data)
         }
-        return response.json();
-    })
-    .then(data => {
-        showData(data);
-    })
-    .catch(error => {
-        console.error('Hubo un problema con el fetch:', error);
     });
-}
+});
 
-getAPIData(API_URL);
+
+
 
 

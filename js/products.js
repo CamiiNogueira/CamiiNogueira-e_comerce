@@ -89,26 +89,16 @@ function showData(products) {
 let categoria = '';
 let allProducts = [];
 
-function getAPIData(url) {
+document.addEventListener("DOMContentLoaded", function(e){
     const categoriaId = localStorage.getItem("catID");
-    return fetch(`${url}/${categoriaId}.json`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-        categoria = data.catName;
-        allProducts = data.products; // Guardamos los productos en la variable global
-        showData(allProducts); // Mostramos los productos sin filtrar
-    })
-    .catch((error) => {
-      console.error("Hubo un problema con el fetch:", error);
+    getJSONData(`${PRODUCTS_URL}/${categoriaId}.json`).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            categoria = resultObj.data.catName;
+            allProducts = resultObj.data.products; // Guardamos los productos en la variable global
+            showData(allProducts); // Mostramos los productos sin filtrar
+        }
     });
-}
-
-getAPIData(API_URL);
+});
 
 let mostrador = document.getElementById("mostrador");
 let seleccion = document.getElementById("seleccion");
