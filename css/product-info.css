@@ -71,3 +71,23 @@
     padding: 2%;
     margin-top: 10px;
 }
+.calificacion {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .usuario {
+    font-weight: bold;
+  }
+  .fecha {
+    color: #888;
+  }
+  .calificacion-estrellas {
+    font-size: 1.5em;
+  }
+  .star {
+    color: #ccc;
+  }
+  .star.filled {
+    color: gold;
+  }

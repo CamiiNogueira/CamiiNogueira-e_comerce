@@ -61,4 +61,42 @@ function getAPIData(url) {
 
 getAPIData(API_URL);
 
+const productId = localStorage.getItem('prodID');
+const commentsUrl = `https://japceibal.github.io/emercado-api/products_comments/`;
 
+if (productId) {
+    fetch(commentsUrl)
+    .then(response => {
+        if (response.headers.get('content-type')?.includes('application/json')) {
+            return response.json();
+        } else {
+            throw new Error("El archivo no es un JSON válido.");
+        }
+    })
+    .then(comments => {
+        const calificacionesContainer = document.getElementById('calificaciones-container');
+
+        comments.forEach(comment => {
+            const calificacionElement = document.createElement('div');
+            calificacionElement.classList.add('calificacion');
+
+            calificacionElement.innerHTML = `
+                <div class="usuario">${comment.user}</div>
+                <div class="fecha">${comment.dateTime}</div>
+                <div class="comentario">${comment.description}</div>
+                <div class="calificacion-estrellas">
+                    ${Array.from({ length: 5 }, (_, i) => 
+                        `<span class="star ${i < comment.score ? 'filled' : ''}">★</span>`
+                    ).join('')}
+                </div>
+            `;
+
+            calificacionesContainer.appendChild(calificacionElement);
+        });
+    })
+    .catch(error => {
+        console.error('Error al obtener los comentarios:', error);
+    });
+} else {
+    console.error("Error: No se ha definido el ID del producto para los comentarios.");
+}
