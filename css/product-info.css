@@ -50,7 +50,6 @@
 
 .calificar1, .calificar2 {
     padding: 20px;
-    text-align: center;
     border: 1px solid rgba(192, 192, 192, 0.363);
     border-radius: 10px;
 }
@@ -61,6 +60,7 @@
 
 .calificar2 {
     width: 35%;
+    text-align: center;
 }
 
 #submit {
@@ -102,3 +102,23 @@
     color: #555;
 }
 
+.calificacion {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .usuario {
+    font-weight: bold;
+  }
+  .fecha {
+    color: #888;
+  }
+  .calificacion-estrellas {
+    font-size: 1.5em;
+  }
+  .star {
+    color: #ccc;
+  }
+  .star.filled {
+    color: gold;
+  }
