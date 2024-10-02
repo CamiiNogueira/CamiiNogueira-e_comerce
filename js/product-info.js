@@ -44,7 +44,7 @@ function showData(product) {
     relatedProductsDiv.innerHTML = '';
     product.relatedProducts.forEach(products => {
         relatedProductsDiv.innerHTML += `
-            <div class="product-card">
+            <div class="product-card" onclick="window.location.href='${"products.html"}'">
                 <div class="contenedor-foto">
                     <img src="${products.image}" alt="${products.name}">
                 </div>
@@ -52,6 +52,7 @@ function showData(product) {
                 <h2 class="modelo">${products.name}</h2>
             </div>
         `;
+        
     }); 
 }
 
