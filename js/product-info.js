@@ -87,6 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
         productCard.appendChild(productDescription);
 
         container.appendChild(productCard);
+        
+        productCard.addEventListener('click', () => {
+            window.location.href = `product-info.html?id=${product.id}`;
+        });
     });
     });
 
