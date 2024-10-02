@@ -47,17 +47,17 @@ document.getElementById('clearRangeFilter').addEventListener('click', function (
     document.getElementById('rangeFilterCountMax').value = '';
     
     showData(allProducts); // Mostrar todos los productos
-    });
+});
 
-    document.getElementById('searchInput').addEventListener('input', function () {
-        const searchTerm = this.value.toLowerCase();
-        const filteredProducts = allProducts.filter(product => {
-            const name = product.name ? product.name.toLowerCase() : '';
-            const description = product.description ? product.description.toLowerCase() : '';
-            return name.includes(searchTerm) || description.includes(searchTerm);
-        });
-        showData(filteredProducts);
-    });    
+document.getElementById('searchInput').addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    const filteredProducts = allProducts.filter(product => {
+        const name = product.name ? product.name.toLowerCase() : '';
+        const description = product.description ? product.description.toLowerCase() : '';
+        return name.includes(searchTerm) || description.includes(searchTerm);
+    });
+    showData(filteredProducts);
+});    
     
 // Función para mostrar los datos en el DOM
 
@@ -137,16 +137,16 @@ function cargar(item){
 }
 
 function cerrar() {
-  mostrador.style.width = "100%";
-  mostrador.style.transform = "translateX(0vw)";
-  seleccion.style.width = "0%";
-  seleccion.style.opacity = "0";
-  quitarBordes();
+    mostrador.style.width = "100%";
+    mostrador.style.transform = "translateX(0vw)";
+    seleccion.style.width = "0%";
+    seleccion.style.opacity = "0";
+    quitarBordes();
 }
 
 function quitarBordes() {
-  var items = document.getElementsByClassName("card");
-  for (i = 0; i < items.length; i++) {
-    items[i].style.border = "1px solid lightgray";
-  }
+    var items = document.getElementsByClassName("card");
+    for (i = 0; i < items.length; i++) {
+        items[i].style.border = "1px solid lightgray";
+    }
 }
