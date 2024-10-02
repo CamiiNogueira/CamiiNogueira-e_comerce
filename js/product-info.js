@@ -40,11 +40,12 @@ function showData(product) {
         </div>
     </div>   
     `;
+
     const relatedProductsDiv = document.getElementById('related-products-container');
     relatedProductsDiv.innerHTML = '';
     product.relatedProducts.forEach(products => {
         relatedProductsDiv.innerHTML += `
-            <div class="product-card" onclick="window.location.href='${"products.html"}'">
+            <div class="product-card" onclick="setProdRelId(${products.id});">
                 <div class="contenedor-foto">
                     <img src="${products.image}" alt="${products.name}">
                 </div>
@@ -54,6 +55,12 @@ function showData(product) {
         `;
         
     }); 
+    
+}
+
+function setProdRelId(id) {
+        localStorage.getItem("ProdID", id);
+        window.location = "product-info.html";
 }
 
 function showComments(comments){
