@@ -45,7 +45,7 @@ function showData(product) {
     relatedProductsDiv.innerHTML = '';
     product.relatedProducts.forEach(products => {
         relatedProductsDiv.innerHTML += `
-            <div class="product-card" onclick="setProdRelId(${products.id});">
+            <div class="product-card" onclick="setprodID(${products.id});">
                 <div class="contenedor-foto">
                     <img src="${products.image}" alt="${products.name}">
                 </div>
@@ -58,8 +58,8 @@ function showData(product) {
     
 }
 
-function setProdRelId(id) {
-        localStorage.getItem("ProdID", id);
+function setprodID(id) {
+        localStorage.getItem("prodID", id);
         window.location = "product-info.html";
 }
 
