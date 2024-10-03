@@ -50,6 +50,7 @@
 
 .calificar1, .calificar2 {
     padding: 20px;
+    text-align: center;
     border: 1px solid rgba(192, 192, 192, 0.363);
     border-radius: 10px;
 }
@@ -60,7 +61,6 @@
 
 .calificar2 {
     width: 35%;
-    text-align: center;
 }
 
 #submit {
@@ -71,54 +71,3 @@
     padding: 2%;
     margin-top: 10px;
 }
-
-.related-products {
-    margin: 20px;
-    background-color: #fff;
-}
-
-.product-card {
-    display: inline-block;
-    width: 250px;
-    height: 255px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.product-card img {
-    max-width: 100%;
-    height: auto;
-}
-
-.product-card h2 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-.product-card p {
-    color: #555;
-}
-
-.calificacion {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  .usuario {
-    font-weight: bold;
-  }
-  .fecha {
-    color: #888;
-  }
-  .calificacion-estrellas {
-    font-size: 1.5em;
-  }
-  .star {
-    color: #ccc;
-  }
-  .star.filled {
-    color: gold;
-  }
