@@ -42,16 +42,14 @@
   <div class="container d-flex justify-content-center" id="product-info">
   </div>
   <div class="resenias">
-    <div class="calificar1 container"> <!-- seccion de comentarios -->
+    <div class="calificar1"> <!-- seccion de comentarios -->
       <h4>Comentarios</h4>
       <hr>
       <div id="calificaciones-container" class="row">
-       </div>
-    </div>
-    
+      </div>    
     </div>
     <div class="calificar2"> <!-- controles para realizar un comentario -->
-      <form>
+      <form id="ratingForm">
         <h4>Califique nuestro producto</h4>
         <div class="star-rating">
           <input type="radio" id="star5" name="rating" value="5" />
@@ -66,11 +64,12 @@
           <label for="star1" title="1 estrella">★</label>
         </div>
         <h5>Comparte mas sobre tu experiencia:</h5>
-        <textarea id="coment" placeholder="Deja tu comentario aqui..." rows="5" cols="50"></textarea><br>
+        <textarea id="comment" placeholder="Deja tu comentario aqui..." rows="5" cols="48"></textarea><br>
         <button type="submit" id="submit">Enviar</button>
       </form>
     </div>
   </div>
+  <br>
   <div class="container d-flex justify-content-center">
   <div class="related-products">
     <h2 class="text-center">Productos Relacionados</h2>

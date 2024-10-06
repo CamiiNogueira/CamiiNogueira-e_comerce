@@ -1,4 +1,6 @@
 const API_URL = "https://japceibal.github.io/emercado-api/products";
+const comentariosDiv = document.getElementById('calificaciones-container');
+comentariosDiv.innerHTML = '';
 
 function showData(product) {
     const productInfoDiv = document.getElementById('product-info');
@@ -63,37 +65,69 @@ function setprodID(id) {
 }
 
 function showComments(comments){
-    const comentariosDiv = document.getElementById('calificaciones-container');
-    comentariosDiv.innerHTML = '';
     comments.forEach(comment => {
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
         comentariosDiv.innerHTML += `
-        
-        <div class="comentario">
-        <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#007bff"></rect>
-        <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
-        </svg>
-        <div class="d-flex text-body-secondary pt-3 col-12">
-          
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#ffffff" dy=".3em"></text></svg>
-          <p class="pb-3 mb-0 small lh-sm border-bottom">
-            <strong class="d-block text-gray-dark"></strong>
-            </p>
-        </div>
-            <div class="usuario">${comment.user}</div>
-            <div class="fecha">${comment.dateTime}</div>
-            <div class="comentario">${comment.description}</div>
-            <div class="calificacion-estrellas">
-                    ${Array.from({ length: 5 }, (_, i) => 
-                        `<span class="star ${i < comment.score ? 'filled' : ''}">★</span>`
-                    ).join('')}
+        <div class="d-flex pt-3">
+            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"> 
+                <title>Placeholder</title> 
+                <rect width="100%" height="100%" fill="#${randomColor}"></rect>
+                <text x="50%" y="50%" fill="#${randomColor}" dy=".3em">32x32</text>
+            </svg>
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                <div class="d-flex justify-content-between">
+                    <strong>${comment.user}</strong>
+                    <a class="fecha text-muted">${comment.dateTime}</a>
+                    <a>
+                        ${Array.from({ length: 5 }, (_, i) => `<span class="star ${i < comment.score ? 'filled' : ''}">★</span>`) .join('')}
+                    </a>
+                </div>
+                <span class="d-block text-gray-dark">${comment.description}</span>
             </div>
         </div>
         <hr>
         `;
     }); 
 }
+
+document.getElementById("ratingForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    if (localStorage.getItem('loggedIn') && localStorage.getItem('userName')) {
+        var userName = localStorage.getItem('userName');
+        const descripcion = document.getElementById('comment').value;
+        const rate = document.querySelector('input[name="rating"]:checked')?.value; // Captura el valor de la calificación
+         // Captura la fecha y hora actual
+        const currentDate = new Date(); // Obtiene la fecha y hora actuales
+         const year = currentDate.getFullYear(); // Obtiene el año
+         const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Obtiene el mes (0-11), por eso sumamos 1 y formateamos con dos dígitos
+         const day = String(currentDate.getDate()).padStart(2, '0'); // Obtiene el día del mes y formatea con dos dígitos
+         const dateString = `${year}-${month}-${day}`; // Formatea la fecha con guiones
+        const timeString = currentDate.toLocaleTimeString(); // Formato de hora (hh:mm:ss AM/PM)
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        comentariosDiv.innerHTML += `
+            <div class="d-flex pt-3">
+                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"> 
+                    <title>Placeholder</title> 
+                    <rect width="100%" height="100%" fill="#${randomColor}"></rect>
+                    <text x="50%" y="50%" fill="#${randomColor}" dy=".3em">32x32</text>
+                </svg>
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between">
+                        <strong>${userName}</strong>
+                        <a class="fecha text-muted">${dateString} ${timeString}</a>
+                        <a>
+                            ${Array.from({ length: 5 }, (_, i) => `<span class="star ${i < rate ? 'filled' : ''}">★</span>`) .join('')}
+                        </a>
+                    </div>
+                    <span class="d-block text-gray-dark">${descripcion}</span>
+                </div>
+            </div>
+            <hr>
+        `;
+    } else {
+        alert("Debes iniciar sesión para realizar un comentario.")
+    }
+});
 
 document.addEventListener("DOMContentLoaded", function(e){
     const productId = localStorage.getItem('prodID');
