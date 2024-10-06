@@ -12,7 +12,6 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/product.css" rel="stylesheet">
   <link href="css/product-info.css" rel="stylesheet">
-  <script src="product-info.js"></script>
 </head>
 
 <body>
@@ -44,11 +43,14 @@
   </div>
   <div class="resenias">
     <div class="calificar1"> <!-- seccion de comentarios -->
-      <h2>Prueba</h2>
+      <h4>Comentarios</h4>
+      <hr>
+      <div id="calificaciones-container" class="row">
+      </div>    
     </div>
     <div class="calificar2"> <!-- controles para realizar un comentario -->
-      <form>
-        <h2>Califique nuestro producto</h2>
+      <form id="ratingForm">
+        <h4>Califique nuestro producto</h4>
         <div class="star-rating">
           <input type="radio" id="star5" name="rating" value="5" />
           <label for="star5" title="5 estrellas">★</label>
@@ -62,13 +64,19 @@
           <label for="star1" title="1 estrella">★</label>
         </div>
         <h5>Comparte mas sobre tu experiencia:</h5>
-        <textarea id="coment" placeholder="Deja tu comentario aqui..." rows="5" cols="50"></textarea><br>
+        <textarea id="comment" placeholder="Deja tu comentario aqui..." rows="5" cols="48"></textarea><br>
         <button type="submit" id="submit">Enviar</button>
       </form>
     </div>
   </div>
-
-
+  <br>
+  <div class="container d-flex justify-content-center">
+  <div class="related-products">
+    <h2 class="text-center">Productos Relacionados</h2>
+    <div class="row" id="related-products-container">
+    </div>
+  </div>
+  </div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -89,7 +97,6 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-
   <script>
     window.onload = function() {
         // Verifica si el usuario está logueado y si el nombre de usuario existe en localStorage
