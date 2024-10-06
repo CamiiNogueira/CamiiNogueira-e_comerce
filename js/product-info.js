@@ -1,6 +1,4 @@
 const API_URL = "https://japceibal.github.io/emercado-api/products";
-const comentariosDiv = document.getElementById('calificaciones-container');
-comentariosDiv.innerHTML = '';
 
 function showData(product) {
     const productInfoDiv = document.getElementById('product-info');
@@ -65,6 +63,8 @@ function setprodID(id) {
 }
 
 function showComments(comments){
+    const comentariosDiv = document.getElementById('calificaciones-container');
+    comentariosDiv.innerHTML = '';
     comments.forEach(comment => {
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
         comentariosDiv.innerHTML += `
@@ -103,27 +103,19 @@ document.getElementById("ratingForm").addEventListener("submit", function(event)
          const day = String(currentDate.getDate()).padStart(2, '0'); // Obtiene el día del mes y formatea con dos dígitos
          const dateString = `${year}-${month}-${day}`; // Formatea la fecha con guiones
         const timeString = currentDate.toLocaleTimeString(); // Formato de hora (hh:mm:ss AM/PM)
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        comentariosDiv.innerHTML += `
-            <div class="d-flex pt-3">
-                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"> 
-                    <title>Placeholder</title> 
-                    <rect width="100%" height="100%" fill="#${randomColor}"></rect>
-                    <text x="50%" y="50%" fill="#${randomColor}" dy=".3em">32x32</text>
-                </svg>
-                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-                    <div class="d-flex justify-content-between">
-                        <strong>${userName}</strong>
-                        <a class="fecha text-muted">${dateString} ${timeString}</a>
-                        <a>
-                            ${Array.from({ length: 5 }, (_, i) => `<span class="star ${i < rate ? 'filled' : ''}">★</span>`) .join('')}
-                        </a>
-                    </div>
-                    <span class="d-block text-gray-dark">${descripcion}</span>
-                </div>
-            </div>
-            <hr>
-        `;
+        const newComment = {
+            product : localStorage.getItem('prodID'),
+            score: rate,
+            description: descripcion,
+            user: userName,
+            dateTime: `${dateString} ${timeString}`
+        };
+
+        // Añadir el nuevo comentario a los datos ya cargados
+        commentsData.push(newComment);
+
+        // Llamar a showComments para actualizar la vista
+        showComments(commentsData);
     } else {
         alert("Debes iniciar sesión para realizar un comentario.")
     }
@@ -138,7 +130,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
     getJSONData(`${PRODUCT_INFO_COMMENTS_URL}${productId}.json`).then(function(resultObj){
         if (resultObj.status === "ok"){
-            showComments(resultObj.data)
+            commentsData = resultObj.data;
+            showComments(commentsData)
         }
     });
 });
