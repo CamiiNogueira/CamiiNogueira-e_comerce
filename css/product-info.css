@@ -16,7 +16,11 @@
     bottom: 42%;
     width: 10%;
 }
-
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 .star-rating {
     display: flex;
     flex-direction: row-reverse; /* Para que visualmente se comporten correctamente con el CSS */
@@ -46,14 +50,15 @@
 
 .resenias {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .calificar1, .calificar2 {
     padding: 20px;
     border: 1px solid rgba(192, 192, 192, 0.363);
     border-radius: 10px;
-    margin-right: 5px;
-    margin-left:5px;
+    margin: 5px;
 }
 
 .calificar1 {
@@ -82,6 +87,36 @@
 .star.filled {
     color: gold;
 }
+
+@media (max-width: 768px){
+    .calificar1, .calificar2 {
+        flex:1 1 100%;
+        width: 100%;
+    } 
+}
+@media only screen and (max-width: 1000px) and (min-width: 561px) and (min-height: 600px) {
+    .calificar1, .calificar2 {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .star-rating {
+        font-size: 3em; /* Ajusta el tamaño de las estrellas para pantallas medianas */
+    }
+
+    #submit {
+        width: 40%; /* Ajusta el ancho del botón de envío */
+    }
+
+    .container {
+        padding: 0 10px; /* Reduce el padding del contenedor */
+    }
+
+    .related-products h2 {
+        font-size: 1.5em; /* Ajusta el tamaño del título de productos relacionados */
+    }
+}
+
 
 .product-card {
     display: inline-block;
