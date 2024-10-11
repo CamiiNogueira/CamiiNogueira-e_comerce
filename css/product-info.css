@@ -52,6 +52,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .calificar1, .calificar2 {
@@ -67,7 +68,7 @@
 
 .calificar2 {
     text-align: center;
-    width: 34%;
+    width: 100%;
 }
 
 #submit {
