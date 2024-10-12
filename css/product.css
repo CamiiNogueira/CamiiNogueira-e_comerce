@@ -76,7 +76,7 @@ img{
 
 
 @media only screen and (max-width: 560px){
-    *{
+    main{
         font-size: 12px;
     }
 
