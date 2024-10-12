@@ -189,4 +189,22 @@ a.custom-card:hover {
   color: orange;
 }
 
+@media (max-width: 991.98px) {
+  .user-button {
+    position: absolute;
+    right: 1rem;
+  }
+}
+
+nav {
+  display: inline-block;
+}
+
+.user-button {
+  padding-left: 10rem;
+}
+
+#user-name {
+  font-size: 18px;
+}
 

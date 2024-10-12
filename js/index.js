@@ -12,3 +12,12 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+document.getElementById('logout').addEventListener('click', function() {
+    // Borrar los datos del usuario en localStorage
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('userName');
+    
+    // Redirigir a la página de login
+    window.location.href = "login.html";
+});
