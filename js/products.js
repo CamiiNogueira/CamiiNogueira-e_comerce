@@ -150,3 +150,24 @@ function quitarBordes() {
         items[i].style.border = "1px solid lightgray";
     }
 }
+const modosNocheDia = document.getElementById('mododia-noche');
+
+// Verificamos si el usuario tenía guardada una preferencia
+if (localStorage.getItem('theme') === 'night') {
+    document.body.classList.add('night'); 
+    modosNocheDia.textContent = 'Modo Día';
+}
+
+
+modosNocheDia.addEventListener('click', () => {
+    document.body.classList.toggle('night'); 
+
+    // Cambiamos el texto del botón y guardamos la preferencia
+    if (document.body.classList.contains('night')) {
+        modosNocheDia.textContent = 'Modo Día';
+        localStorage.setItem('theme', 'night'); 
+    } else {
+        modosNocheDia.textContent = ' Modo Noche';
+        localStorage.removeItem('theme'); 
+    }
+});
