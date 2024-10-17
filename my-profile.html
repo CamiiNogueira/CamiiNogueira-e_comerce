@@ -115,17 +115,19 @@
             var userName = localStorage.getItem('userName');
             document.getElementById('user-name').textContent = userName;
             document.getElementById("usuario").value = userName;
-            document.getElementById("nombreUsuario").innerHTML = userName;
+            document.getElementById("nombreUsuario").innerHTML = "Nombre Usuario";
         }
         //Si se llenó el input y se guardó su valor lo carga en dicho input
         if (localStorage.getItem('nombre')) {
-        document.getElementById('nombre').value = localStorage.getItem('nombre');
+          document.getElementById('nombre').value = localStorage.getItem('nombre');
+          document.getElementById("nombreUsuario").innerHTML = document.getElementById('nombre').value + " ";
         }
         if (localStorage.getItem('snombre')) {
           document.getElementById('snombre').value = localStorage.getItem('snombre');
         }
         if (localStorage.getItem('apellido')) {
           document.getElementById('apellido').value = localStorage.getItem('apellido');
+          document.getElementById("nombreUsuario").innerHTML += document.getElementById('apellido').value
         }
         if (localStorage.getItem('sapellido')) {
             document.getElementById('sapellido').value = localStorage.getItem('sapellido');
