@@ -45,45 +45,57 @@
       </ul>
     </div>
   </nav>
-<div class="user-profile">
-  <h1>Perfil del usuario</h1>  
-  <div class="image-container">
-  <img src="img\modo oscuro.png" class="modo-img" alt="Modo noche">  
+  <div class="user-profile">
+    <h2 class="ms-4">Perfil del usuario</h2>  
+    <div class="image-container">
+      <img src="img\modo oscuro.png" class="modo-img btn" alt="Modo noche">
+    </div>
   </div>
-  </div>
-  <br>
   <hr>
-    <div class="profile-container"> 
-      <img src="img/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper-thumbnail.png" class="fotoperfil"alt="Foto de usuario"/>
-      <h2 id="nombreUsuario"></h2>
-      <br> 
-    </div>
-    <form action="/enviar" method="post">
-    <div id="form-container">
-    <div class="column1">
-      <label for="usuario">Usuario</label>
-      <input type="text" id="usuario" name="usuario" disabled readonly>
-      <label for="nombre">Nombre *</label>
-      <input type="text" id="nombre" name="nombre" required />
-      <label for="apellido">Apellido *</label>
-      <input type="text" id="apellido" name="apellido" required />
-      <label for="telefono">Telefono</label>
-      <input type="number" id="telefono" name="telefono" />
-      <br />
-    </div>
-    <div class="column2">
-      <label for="snombre">Segundo nombre</label>
-      <input type="text" id="snombre" name="snombre" />
-      <label for="sapellido">Segundo apellido</label>
-      <input type="text" id="sapellido" name="sapellido" />
-      <label for="email">Correo electrónico *</label>
-      <input type="email" id="email" name="email" required />
-      <br>
-      <br>
-      <input type="submit" value="Cancelar" />
-     <input id="guardar" type="submit" value="Guardar cambios" />
-    </div>
-  </div>
+    <div class="d-flex justify-content-around"> 
+      <div class="profile-container">
+        <img src="img/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper-thumbnail.png" class="fotoperfil" alt="Foto de usuario" id="profile-picture"/>
+        <div class="container">
+          <h2 id="nombreUsuario">Nombre Usuario</h2>
+          <h4 id="usuario2" class="text-muted">@...</h4>
+        </div>
+      </div>
+      <div> 
+        <label for="upload-button" class="btn btn-outline-dark mt-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
+          </svg>
+          Cambiar foto de perfil</label>
+        <input type="file" id="upload-button" accept="image/*" style="display: none;">    
+      </div>
+    </div> 
+    <br>
+    <form>
+      <div id="form-container">
+        <div class="column1">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" disabled readonly>
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" required />
+          <label for="apellido">Apellido *</label>
+          <input type="text" id="apellido" name="apellido" required />
+          <label for="telefono">Telefono</label>
+          <input type="number" id="telefono" name="telefono" />
+          <br />
+        </div>
+        <div class="column2">
+          <label for="snombre">Segundo nombre</label>
+          <input type="text" id="snombre" name="snombre" />
+          <label for="sapellido">Segundo apellido</label>
+          <input type="text" id="sapellido" name="sapellido" />
+          <label for="email">Correo electrónico *</label>
+          <input type="email" id="email" name="email" required />
+          <br>
+          <br>
+          <input type="submit" value="Cancelar" />
+          <input id="guardar" type="submit" value="Guardar cambios" />
+        </div>
+      </div>
   </form>
   <footer class="text-muted">
     <div class="container">
@@ -104,7 +116,8 @@
             var userName = localStorage.getItem('userName');
             document.getElementById('user-name').textContent = userName;
             document.getElementById("usuario").value = userName;
-            document.getElementById("nombreUsuario").innerHTML = "Nombre Usuario";
+            document.getElementById("usuario2").innerHTML = "@" + userName;
+
         }
         //Si se llenó el input y se guardó su valor lo carga en dicho input
         if (localStorage.getItem('nombre')) {
@@ -127,6 +140,25 @@
         if (localStorage.getItem('email')) {
             document.getElementById('email').value = localStorage.getItem('email');
         }
+        if (localStorage.getItem('imgPerfil')){
+          document.getElementById('profile-picture').src = localStorage.getItem('imgPerfil');
+        }
+        // Función para cambiar la foto de perfil
+        const uploadButton = document.getElementById('upload-button');
+        const profilePicture = document.getElementById('profile-picture');
+
+        uploadButton.addEventListener('change', function() {
+          const file = this.files[0]; // Obtenemos el archivo seleccionado
+          if (file) {
+            const reader = new FileReader(); // Creamos un nuevo lector de archivos
+            // Cuando la lectura del archivo se haya completado
+            reader.onload = function(e) {
+              profilePicture.src = e.target.result;  // Actualizamos la imagen de perfil con la nueva foto
+              localStorage.setItem('imgPerfil', profilePicture.src);
+            };
+            reader.readAsDataURL(file); // Convierte la imagen a una URL esto es necesario para que podamos mostrar la imagen en el navegador sin tener que cargarla desde un servidor.
+          }
+        });
     };
 </script>
 </body>

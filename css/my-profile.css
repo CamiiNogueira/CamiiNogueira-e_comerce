@@ -5,19 +5,23 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .bd-placeholder-img-lg {
-      font-size: 3.5rem;
+        font-size: 3.5rem;
     }
 }
 
+*{
+    font-family: Arial, sans-serif;
+}
 
 .user-profile {
     display: flex;
     align-items: center; /* Alinea verticalmente al centro */
     justify-content: space-between;
+    margin-top: 2%;
 }
 
 .image-container {
@@ -25,7 +29,7 @@
 }
 
 .modo-img {
-    width: 100%;
+    width: 70%;
     height: auto; /* Mantiene la proporción de la imagen */
     right: 0%;
     border-radius: 50%; /* bordes redondos */
@@ -36,17 +40,13 @@
     display: flex;
     align-items: center;
 }
+
 .fotoperfil{
-    width: 10%;
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 8rem;
+    height: 8rem; /* Mantiene la proporción de la imagen */
     border-radius: 50%; /* bordes redondos */
     object-fit: cover; /* Ajusta imagen dentro del borde */
-    margin-left: 15% ; /*Esto es para mantener una distancia*/
 }
-h2{
-    margin-left: 2%;
-}
-
 
 /* Contenedor del formulario */
 form {
@@ -61,8 +61,6 @@ form {
     max-width: 1000px; /* Limita el ancho del formulario */
     margin: auto; /* Centra el formulario */
 }
-
-
 
 /* Estilo de los campos del formulario */
 form label {
@@ -110,8 +108,8 @@ form input[type="submit"][value="Cancelar"] {
 form input[type="submit"]:hover {
     background-color: #0056b3; /* Azul más oscuro */
 }
+
 form input[type="submit"][value="Cancelar"]:hover {
     background-color: #c82333; /* Rojo más oscuro */
 }
-
 
