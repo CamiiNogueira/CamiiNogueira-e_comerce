@@ -61,12 +61,12 @@
   </nav>
   <h1>Perfil del usuario</h1> <img src="img\modo oscuro.png" alt="Modo noche">
     <img src="img/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper-thumbnail.png" alt="Foto de usuario"/>
-      <h2>Claudia Lopez</h2>
+      <h2 id="nombreUsuario"></h2>
       <br>
 
-    <form action="/enviar" method="post">
+    <form>
       <label for="usuario">Usuario</label>
-      <input type="text" id="usuario" name="usuario" value="@clopez23" readonly>
+      <input type="text" id="usuario" name="usuario" disabled readonly>
       <br>
 
       <label for="nombre">Nombre *</label>
@@ -94,7 +94,7 @@
       <br />
 
       <input type="submit" value="Cancelar" />
-      <input type="submit" value="Guardar cambios" />
+      <input id="guardar" type="submit" value="Guardar cambios" />
     </form>
   <footer class="text-muted">
     <div class="container">
@@ -114,6 +114,27 @@
         if (localStorage.getItem('loggedIn') && localStorage.getItem('userName')) {
             var userName = localStorage.getItem('userName');
             document.getElementById('user-name').textContent = userName;
+            document.getElementById("usuario").value = userName;
+            document.getElementById("nombreUsuario").innerHTML = userName;
+        }
+        //Si se llenó el input y se guardó su valor lo carga en dicho input
+        if (localStorage.getItem('nombre')) {
+        document.getElementById('nombre').value = localStorage.getItem('nombre');
+        }
+        if (localStorage.getItem('snombre')) {
+          document.getElementById('snombre').value = localStorage.getItem('snombre');
+        }
+        if (localStorage.getItem('apellido')) {
+          document.getElementById('apellido').value = localStorage.getItem('apellido');
+        }
+        if (localStorage.getItem('sapellido')) {
+            document.getElementById('sapellido').value = localStorage.getItem('sapellido');
+        }
+        if (localStorage.getItem('telefono')) {
+            document.getElementById('telefono').value = localStorage.getItem('telefono');
+        }
+        if (localStorage.getItem('email')) {
+            document.getElementById('email').value = localStorage.getItem('email');
         }
     };
 </script>
