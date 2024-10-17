@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.getElementById('logout').addEventListener('click', function() {
     // Borrar los datos del usuario en localStorage
-    localStorage.removeItem('loggedIn');
-    localStorage.removeItem('userName');
+    localStorage.clear();
     
     // Redirigir a la página de login
     window.location.href = "login.html";

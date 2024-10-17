@@ -45,8 +45,7 @@
       </ul>
     </div>
   </nav>
-
-  <div class="user-profile">
+<div class="user-profile">
   <h1>Perfil del usuario</h1>  
   <div class="image-container">
   <img src="img\modo oscuro.png" class="modo-img" alt="Modo noche">  
@@ -56,16 +55,14 @@
   <hr>
     <div class="profile-container"> 
       <img src="img/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper-thumbnail.png" class="fotoperfil"alt="Foto de usuario"/>
-      <h2>Claudia Lopez</h2>
+      <h2 id="nombreUsuario"></h2>
       <br> 
     </div>
-   
-
     <form action="/enviar" method="post">
     <div id="form-container">
     <div class="column1">
       <label for="usuario">Usuario</label>
-      <input type="text" id="usuario" name="usuario" value="@clopez23" readonly>
+      <input type="text" id="usuario" name="usuario" disabled readonly>
       <label for="nombre">Nombre *</label>
       <input type="text" id="nombre" name="nombre" required />
       <label for="apellido">Apellido *</label>
@@ -84,11 +81,10 @@
       <br>
       <br>
       <input type="submit" value="Cancelar" />
-      <input type="submit" value="Guardar cambios" />
+     <input id="guardar" type="submit" value="Guardar cambios" />
     </div>
   </div>
   </form>
-
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -107,6 +103,29 @@
         if (localStorage.getItem('loggedIn') && localStorage.getItem('userName')) {
             var userName = localStorage.getItem('userName');
             document.getElementById('user-name').textContent = userName;
+            document.getElementById("usuario").value = userName;
+            document.getElementById("nombreUsuario").innerHTML = "Nombre Usuario";
+        }
+        //Si se llenó el input y se guardó su valor lo carga en dicho input
+        if (localStorage.getItem('nombre')) {
+          document.getElementById('nombre').value = localStorage.getItem('nombre');
+          document.getElementById("nombreUsuario").innerHTML = document.getElementById('nombre').value + " ";
+        }
+        if (localStorage.getItem('snombre')) {
+          document.getElementById('snombre').value = localStorage.getItem('snombre');
+        }
+        if (localStorage.getItem('apellido')) {
+          document.getElementById('apellido').value = localStorage.getItem('apellido');
+          document.getElementById("nombreUsuario").innerHTML += document.getElementById('apellido').value
+        }
+        if (localStorage.getItem('sapellido')) {
+            document.getElementById('sapellido').value = localStorage.getItem('sapellido');
+        }
+        if (localStorage.getItem('telefono')) {
+            document.getElementById('telefono').value = localStorage.getItem('telefono');
+        }
+        if (localStorage.getItem('email')) {
+            document.getElementById('email').value = localStorage.getItem('email');
         }
     };
 </script>

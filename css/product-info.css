@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: row-reverse; /* Para que visualmente se comporten correctamente con el CSS */
     justify-content:center;
-    font-size: 4em;
+    font-size: 3em;
 }
 
 .star-rating input {
@@ -60,15 +60,16 @@
     border: 1px solid rgba(192, 192, 192, 0.363);
     border-radius: 10px;
     margin: 5px;
+    flex: 1 1 48%; /* Aseguramos que ambos contenedores ocupen 48% del ancho en pantallas grandes */
+    max-width: 48%;
 }
 
 .calificar1 {
-    width: 64%;
+    text-align: left;
 }
 
 .calificar2 {
     text-align: center;
-    width: 100%;
 }
 
 #submit {
@@ -88,35 +89,37 @@
 .star.filled {
     color: gold;
 }
-
-@media (max-width: 768px){
-    .calificar1, .calificar2 {
-        flex:1 1 100%;
-        width: 100%;
-    } 
-}
-@media only screen and (max-width: 1000px) and (min-width: 561px) and (min-height: 600px) {
+@media (max-width: 700px) {
     .calificar1, .calificar2 {
         flex: 1 1 100%;
-        width: 100%;
+        max-width: 100%; /* Ocupa el 100% del ancho */
     }
-
     .star-rating {
-        font-size: 3em; /* Ajusta el tamaño de las estrellas para pantallas medianas */
+        font-size: 3em; /* Ajusta el tamaño de las estrellas para pantallas pequeñas */
     }
-
+    #comment {
+        width: 100%; /* Ajusta el ancho del textarea para pantallas pequeñas */
+    }
     #submit {
-        width: 40%; /* Ajusta el ancho del botón de envío */
-    }
-
-    .container {
-        padding: 0 10px; /* Reduce el padding del contenedor */
-    }
-
-    .related-products h2 {
-        font-size: 1.5em; /* Ajusta el tamaño del título de productos relacionados */
+        width: 100%; /* Ajusta el ancho del botón de envío */
     }
 }
+@media (max-width:400px){
+    .star-rating {
+        font-size: 4em; /* Aumenta el tamaño de las estrellas para pantallas muy pequeñas */
+        padding: 5%;
+    }
+    .calificar1, .calificar2 {
+        max-width: 100%; /* Ocupa el 100% del ancho */
+    }
+    #comment {
+        width: 100%; /* Asegura que el textarea ocupe todo el ancho */
+    }
+    #submit {
+        width: 100%; /* Asegura que el botón de envío ocupe todo el ancho */
+     }
+}
+
 
 
 .product-card {
