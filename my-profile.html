@@ -7,23 +7,9 @@
   <title>eMercado - Todo lo que busques está aquí</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css.map" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
+  <link href="css/my-profile.css" rel="stylesheet">
 </head>
 
 <body>
@@ -59,43 +45,50 @@
       </ul>
     </div>
   </nav>
-  <h1>Perfil del usuario</h1> <img src="img\modo oscuro.png" alt="Modo noche">
-    <img src="img/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper-thumbnail.png" alt="Foto de usuario"/>
+
+  <div class="user-profile">
+  <h1>Perfil del usuario</h1>  
+  <div class="image-container">
+  <img src="img\modo oscuro.png" class="modo-img" alt="Modo noche">  
+  </div>
+  </div>
+  <br>
+  <hr>
+    <div class="profile-container"> 
+      <img src="img/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper-thumbnail.png" class="fotoperfil"alt="Foto de usuario"/>
       <h2>Claudia Lopez</h2>
-      <br>
+      <br> 
+    </div>
+   
 
     <form action="/enviar" method="post">
+    <div id="form-container">
+    <div class="column1">
       <label for="usuario">Usuario</label>
       <input type="text" id="usuario" name="usuario" value="@clopez23" readonly>
-      <br>
-
       <label for="nombre">Nombre *</label>
       <input type="text" id="nombre" name="nombre" required />
-
-      <label for="snombre">Segundo nombre</label>
-      <input type="text" id="snombre" name="snombre" />
-
-      <br />
-
       <label for="apellido">Apellido *</label>
       <input type="text" id="apellido" name="apellido" required />
-
-      <label for="sapellido">Segundo apellido</label>
-      <input type="text" id="sapellido" name="sapellido" />
-
-      <br />
-
       <label for="telefono">Telefono</label>
       <input type="number" id="telefono" name="telefono" />
-
+      <br />
+    </div>
+    <div class="column2">
+      <label for="snombre">Segundo nombre</label>
+      <input type="text" id="snombre" name="snombre" />
+      <label for="sapellido">Segundo apellido</label>
+      <input type="text" id="sapellido" name="sapellido" />
       <label for="email">Correo electrónico *</label>
       <input type="email" id="email" name="email" required />
-
-      <br />
-
+      <br>
+      <br>
       <input type="submit" value="Cancelar" />
       <input type="submit" value="Guardar cambios" />
-    </form>
+    </div>
+  </div>
+  </form>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
