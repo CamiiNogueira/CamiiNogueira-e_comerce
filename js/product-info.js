@@ -135,6 +135,27 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+const modosNocheDia = document.getElementById('mododia-noche');
+
+// Verificamos si el usuario tenía guardada una preferencia
+if (localStorage.getItem('theme') === 'night') {
+    document.body.classList.add('night'); // Agregamos la clase 'night' al body si estaba guardada
+    modosNocheDia.textContent = 'Modo Día';
+}
+
+// Agregamos un evento de clic al botón
+modosNocheDia.addEventListener('click', () => {
+    document.body.classList.toggle('night'); // Alternamos la clase 'night' en el body
+
+    // Cambiamos el texto del botón y guardamos la preferencia
+    if (document.body.classList.contains('night')) {
+        modosNocheDia.textContent = 'Modo Día';
+        localStorage.setItem('theme', 'night'); // Guardamos la preferencia en localStorage
+    } else {
+        modosNocheDia.textContent = ' Modo Noche';
+        localStorage.removeItem('theme'); // Eliminamos la preferencia si está en modo día
+    }
+}); 
 
 
 
