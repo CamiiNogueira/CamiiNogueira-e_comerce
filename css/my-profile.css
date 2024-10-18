@@ -113,3 +113,7 @@ form input[type="submit"][value="Cancelar"]:hover {
     background-color: #c82333; /* Rojo más oscuro */
 }
 
+.error-message{
+    color:red;
+    font-size: 0.9em;
+}
