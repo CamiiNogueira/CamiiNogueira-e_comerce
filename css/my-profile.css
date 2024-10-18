@@ -71,13 +71,28 @@ form label {
     column-count: 2; /*Esto es para separar en columnas*/
 }
 
-form input {
+/* Aplicación de estilos Bootstrap a los inputs y feedback */
+form .form-control {
     width: 100%; /* Ancho completo */
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
+}
+
+form .form-control:invalid {
+    border-color: #dc3545; /* Rojo para campos inválidos */
+}
+
+form .form-control:invalid + .invalid-feedback {
+    display: block; /* Muestra los mensajes de error */
+}
+
+/* Estilos para los mensajes de error */
+.invalid-feedback {
+    color: red;
+    font-size: 0.9em;
+    display: none; /* Oculta el mensaje inicialmente */
 }
 
 /* Botones de envío */
@@ -88,7 +103,7 @@ form input[type="submit"] {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    cursor: pointer;/*cambia el cursor*/
+    cursor: pointer; /* Cambia el cursor */
     font-size: 1em;
 }
 
@@ -113,7 +128,4 @@ form input[type="submit"][value="Cancelar"]:hover {
     background-color: #c82333; /* Rojo más oscuro */
 }
 
-.error-message{
-    color:red;
-    font-size: 0.9em;
-}
+

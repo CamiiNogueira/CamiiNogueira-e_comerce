@@ -71,44 +71,58 @@
       </div>
     </div> 
     <br>
-    <form id="myForm">
-      <div id="form-container">
-        <div class="column1">
+    <form id="myForm" class="needs-validation" novalidate>
+      <div id="form-container" class="row">
+        <div class="col-md-6 mb-3">
           <label for="usuario">Usuario</label>
-          <input type="text" id="usuario" name="usuario" disabled readonly>
-
-          <label for="nombre">Nombre *</label>
-          <input type="text" id="nombre" name="nombre" required />
-          <span class="error-message" id="error-nombre"></span>
-
-          <label for="apellido">Apellido *</label>
-          <input type="text" id="apellido" name="apellido" required />
-          <span class="error-message" id="error-apellido"></span>
-
-          <label for="telefono">Telefono</label>
-          <input type="number" id="telefono" name="telefono" />
-          <span class="error-message" id="error-telefono"></span>
-          <br />
+          <input type="text" id="usuario" name="usuario" class="form-control" value="@clopez23" disabled readonly>
         </div>
-        <div class="column2">
-          <label for="snombre">Segundo nombre</label>
-          <input type="text" id="snombre" name="snombre" />
-          <span class="error-message" id="error-snombre"></span>
 
+        <div class="col-md-6 mb-3">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" class="form-control" required>
+          <div class="invalid-feedback">
+            Por favor, introduce un nombre válido.
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="apellido">Apellido *</label>
+          <input type="text" id="apellido" name="apellido" class="form-control" required>
+          <div class="invalid-feedback">
+            Por favor, introduce un apellido válido.
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="telefono">Telefono</label>
+          <input type="number" id="telefono" name="telefono" class="form-control">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="snombre">Segundo nombre</label>
+          <input type="text" id="snombre" name="snombre" class="form-control">
+        </div>
+
+        <div class="col-md-6 mb-3">
           <label for="sapellido">Segundo apellido</label>
-          <input type="text" id="sapellido" name="sapellido" />
-          <span class="error-message" id="error-sapellido"></span>
-          
+          <input type="text" id="sapellido" name="sapellido" class="form-control">
+        </div>
+        
+        <div class="col-md-6 mb-3">
           <label for="email">Correo electrónico *</label>
-          <input type="email" id="email" name="email" required />
-          <span class="error-message" id="error-email"></span>
-          <br>
-          <br>
-          <input type="submit" value="Cancelar" />
-          <input id="guardar" type="submit" value="Guardar cambios" />
+          <input type="email" id="email" name="email" class="form-control" required>
+          <div class="invalid-feedback">
+            Por favor, introduce un correo electrónico válido.
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <input type="submit" value="Cancelar" class="btn btn-danger">
+          <input id="guardar" type="submit" value="Guardar cambios" class="btn btn-primary">
         </div>
       </div>
-  </form>
+    </form>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
