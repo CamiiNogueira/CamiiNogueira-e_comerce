@@ -42,16 +42,16 @@ let getJSONData = function(url){
 document.addEventListener('DOMContentLoaded', function() {
   // Verificamos si el usuario tenía guardada una preferencia en localStorage
   if (localStorage.getItem('theme') === 'night') {
-      document.body.classList.add('night'); // Agregamos la clase 'night' si estaba guardada
-      document.getElementById('mododia-noche').innerHTML = '<i class="fas fa-sun"></i>'; // Cambiamos el icono
+      document.body.classList.add('night'); 
+      document.getElementById('mododia-noche').innerHTML = '<i class="fas fa-sun"></i>'; 
   }
   
   const modosNocheDia = document.getElementById('mododia-noche');
-  if (modosNocheDia) { // Verificamos que el botón esté en la página actual
+  if (modosNocheDia) { // Verifica que el botón esté en la página actual
       modosNocheDia.addEventListener('click', () => {
           document.body.classList.toggle('night');
           
-          // Cambiamos el icono y guardamos la preferencia
+          // Cambia el icono y guarda la preferencia
           if (document.body.classList.contains('night')) {
               modosNocheDia.innerHTML = '<i class="fas fa-sun"></i>';
               localStorage.setItem('theme', 'night');
