@@ -40,7 +40,7 @@ let getJSONData = function(url){
     });
 }
 document.addEventListener('DOMContentLoaded', function() {
-  // Verificamos si el usuario tenía guardada una preferencia en localStorage
+  // Verifica si el usuario tenía guardada una preferencia en localStorage
   if (localStorage.getItem('theme') === 'night') {
       document.body.classList.add('night'); 
       document.getElementById('mododia-noche').innerHTML = '<i class="fas fa-sun"></i>'; 
