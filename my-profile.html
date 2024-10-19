@@ -75,15 +75,27 @@
       <div id="form-container" class="row">
         <div class="col-md-6 mb-3">
           <label for="usuario">Usuario</label>
-          <input type="text" id="usuario" name="usuario" class="form-control" value="@clopez23" disabled readonly>
+          <input type="text" id="usuario" name="usuario" class="form-control" disabled readonly>
         </div>
-
+        <div class="col-md-6 mb-3">
+          <label for="email">Correo electrónico *</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+          <div class="invalid-feedback">
+            Por favor, introduce un correo electrónico válido.
+          </div>
+        </div>
+        
         <div class="col-md-6 mb-3">
           <label for="nombre">Nombre *</label>
           <input type="text" id="nombre" name="nombre" class="form-control" required>
           <div class="invalid-feedback">
             Por favor, introduce un nombre válido.
           </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="snombre">Segundo nombre</label>
+          <input type="text" id="snombre" name="snombre" class="form-control">
         </div>
 
         <div class="col-md-6 mb-3">
@@ -95,30 +107,17 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="telefono">Telefono</label>
-          <input type="number" id="telefono" name="telefono" class="form-control">
-        </div>
-
-        <div class="col-md-6 mb-3">
-          <label for="snombre">Segundo nombre</label>
-          <input type="text" id="snombre" name="snombre" class="form-control">
-        </div>
-
-        <div class="col-md-6 mb-3">
           <label for="sapellido">Segundo apellido</label>
           <input type="text" id="sapellido" name="sapellido" class="form-control">
         </div>
         
         <div class="col-md-6 mb-3">
-          <label for="email">Correo electrónico *</label>
-          <input type="email" id="email" name="email" class="form-control" required>
-          <div class="invalid-feedback">
-            Por favor, introduce un correo electrónico válido.
-          </div>
+          <label for="telefono">Telefono</label>
+          <input type="number" id="telefono" name="telefono" class="form-control">
         </div>
 
         <div class="col-md-12">
-          <input type="submit" value="Cancelar" class="btn btn-danger">
+          <input type="button" id="cancelar" value="Cancelar" class="btn btn-danger">
           <input id="guardar" type="submit" value="Guardar cambios" class="btn btn-primary">
         </div>
       </div>
@@ -143,7 +142,6 @@
             document.getElementById('user-name').textContent = userName;
             document.getElementById("usuario").value = userName;
             document.getElementById("usuario2").innerHTML = "@" + userName;
-
         }
         //Si se llenó el input y se guardó su valor lo carga en dicho input
         if (localStorage.getItem('nombre')) {

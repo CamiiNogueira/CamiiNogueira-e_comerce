@@ -80,19 +80,15 @@ form .form-control {
     font-size: 1em;
 }
 
-form .form-control:invalid {
-    border-color: #dc3545; /* Rojo para campos inválidos */
-}
-
-form .form-control:invalid + .invalid-feedback {
-    display: block; /* Muestra los mensajes de error */
-}
-
 /* Estilos para los mensajes de error */
 .invalid-feedback {
     color: red;
     font-size: 0.9em;
     display: none; /* Oculta el mensaje inicialmente */
+}
+
+#cancelar{
+    width: calc(50% - 5px);
 }
 
 /* Botones de envío */
