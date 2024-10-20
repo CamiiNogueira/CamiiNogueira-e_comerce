@@ -146,29 +146,50 @@
             document.getElementById("usuario2").innerHTML = "@" + userName;
         }
         //Si se llenó el input y se guardó su valor lo carga en dicho input
-        if (localStorage.getItem('nombre')) {
-          document.getElementById('nombre').value = localStorage.getItem('nombre');
-          document.getElementById("nombreUsuario").innerHTML = document.getElementById('nombre').value + " ";
+        function cargarDatos(){
+          if (localStorage.getItem('nombre')) {
+            document.getElementById('nombre').value = localStorage.getItem('nombre');
+            document.getElementById("nombreUsuario").innerHTML = document.getElementById('nombre').value + " ";
+          } else {
+            document.getElementById('nombre').value = "";
+          }
+          if (localStorage.getItem('snombre')) {
+            document.getElementById('snombre').value = localStorage.getItem('snombre');
+          }else {
+            document.getElementById('snombre').value = "";
+          }
+          if (localStorage.getItem('apellido')) {
+            document.getElementById('apellido').value = localStorage.getItem('apellido');
+            document.getElementById("nombreUsuario").innerHTML += document.getElementById('apellido').value
+          }else {
+            document.getElementById('apellido').value = "";
+          }
+          if (localStorage.getItem('sapellido')) {
+              document.getElementById('sapellido').value = localStorage.getItem('sapellido');
+          }else {
+            document.getElementById('sapellido').value = "";
+          }
+          if (localStorage.getItem('telefono')) {
+              document.getElementById('telefono').value = localStorage.getItem('telefono');
+          }else {
+            document.getElementById('telefono').value = "";
+          }
+          if (localStorage.getItem('email')) {
+              document.getElementById('email').value = localStorage.getItem('email');
+          }else {
+            document.getElementById('email').value = "";
+          }
+          if (localStorage.getItem('imgPerfil')){
+            document.getElementById('profile-picture').src = localStorage.getItem('imgPerfil');
+          }
         }
-        if (localStorage.getItem('snombre')) {
-          document.getElementById('snombre').value = localStorage.getItem('snombre');
-        }
-        if (localStorage.getItem('apellido')) {
-          document.getElementById('apellido').value = localStorage.getItem('apellido');
-          document.getElementById("nombreUsuario").innerHTML += document.getElementById('apellido').value
-        }
-        if (localStorage.getItem('sapellido')) {
-            document.getElementById('sapellido').value = localStorage.getItem('sapellido');
-        }
-        if (localStorage.getItem('telefono')) {
-            document.getElementById('telefono').value = localStorage.getItem('telefono');
-        }
-        if (localStorage.getItem('email')) {
-            document.getElementById('email').value = localStorage.getItem('email');
-        }
-        if (localStorage.getItem('imgPerfil')){
-          document.getElementById('profile-picture').src = localStorage.getItem('imgPerfil');
-        }
+
+        cargarDatos();
+
+        document.getElementById('cancelar').addEventListener('click', function(){
+          cargarDatos();
+        });
+        
         // Función para cambiar la foto de perfil
         const uploadButton = document.getElementById('upload-button');
         const profilePicture = document.getElementById('profile-picture');

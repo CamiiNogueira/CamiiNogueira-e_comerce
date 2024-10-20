@@ -18,14 +18,6 @@
         }
         form.classList.add('was-validated');
       }, false);
-      document.getElementById('cancelar').addEventListener('click', function(){
-        document.getElementById('nombre').value = '';
-        document.getElementById('snombre').value = '';
-        document.getElementById('apellido').value = '';
-        document.getElementById('sapellido').value = '';
-        document.getElementById('telefono').value = '';
-        document.getElementById('email').value = '';
-      });
     });
   }, false);
 })();
