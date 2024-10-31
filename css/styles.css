@@ -265,7 +265,7 @@ body.night .cerrar{
     background-color: #2a2a2a; 
 }
 /* Estilos para la lista de categorías */
-#cat-list-container .list-group-item {
+.night #cat-list-container .list-group-item {
   background-color: #333333;
   color: #ffffff;
   border: 1px solid #444444;
@@ -289,19 +289,20 @@ body.night .cerrar{
 .night .dz-message {
   color: #ffffff; 
 }
-.btn-light {
+.night .btn-light {
   background-color: #343a40; 
   color: #fff; 
   border-color: #343a40;
 }
-textarea#comment {
+.night #comment {
   background-color: #222; 
   color: #fff; 
   border: 1px solid #555; 
 }
 .night #myForm {
   background-color: #222; 
- }
+}
+
 
 .night .jumbotron {
   background: url("../img/mercado\ \(2\).png");
