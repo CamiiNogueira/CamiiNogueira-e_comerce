@@ -143,20 +143,21 @@ const cantidadInput = document.getElementById('cantidad');
 
 btnComprar.addEventListener('click', () => {
     const cantidad = parseInt(cantidadInput.value);
-
+    
     if (isNaN(cantidad) || cantidad <= 0) {
-        alert('Por favor, ingresa una cantidad válida.');
-        return;
+    alert('Por favor, ingresa una cantidad válida.');
+    return;
     }
-
     
     const producto = {
-        id: parseInt(localStorage.getItem('prodID')),
-        nombre: document.getElementById('product-info').querySelector('.modelo').textContent.trim(),
-        precio: parseFloat(document.getElementById('product-info').querySelector('.precio').textContent.split('$')[1]),
-        imagen: document.getElementById('carouselExampleControls').querySelector('.active img').src,
-        cantidad: cantidad
+    id: parseInt(localStorage.getItem('prodID')),
+    nombre: document.getElementById('product-info').querySelector('.modelo').textContent.trim(),
+    precio: parseFloat(document.getElementById('product-info').querySelector('.precio').textContent.split('$')[1]),
+    moneda: document.getElementById('product-info').querySelector('.precio').textContent.split(' ')[1], // Guarda la moneda
+    imagen: document.getElementById('carouselExampleControls').querySelector('.active img').src,
+    cantidad: cantidad
     };
+
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     carrito.push(producto);
     // Guardar el carrito actualizado en localStorage
