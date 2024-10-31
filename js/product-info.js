@@ -145,7 +145,12 @@ btnComprar.addEventListener('click', () => {
     const cantidad = parseInt(cantidadInput.value);
 
     if (isNaN(cantidad) || cantidad <= 0) {
-        alert('Por favor, ingresa una cantidad válida.');
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: 'Por favor, ingresa una cantidad válida.',
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
         return;
     }
 
