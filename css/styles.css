@@ -303,12 +303,15 @@ textarea#comment {
   background-color: #222; 
  }
 
+.night .jumbotron {
+  background: url("../img/mercado\ \(2\).png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  font-weight: bold;
+}
 
-
-
-
-
-
-
-
-
+.night .bg-light {
+  background-color: black!important;
+}
