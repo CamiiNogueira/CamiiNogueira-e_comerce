@@ -8,6 +8,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         localStorage.setItem('userName', usuario);
         window.location.href = "index.html";
     } else {
-        alert("Usuario o contraseña imcompletos.");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Usuario o contraseña incompletos",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
     }
 });
