@@ -14,10 +14,10 @@ function cargarCarrito() {
                 <td>${producto.nombre}</td>
                 <td>${producto.moneda} ${producto.precio}</td>
                 <td>
-                    <div class="input-group me-2" style="max-width: 150px;">
-                        <button id="btnMenos-${producto.id}" class="btn btn-outline-secondary">-</button>
+                    <div class="input-group me-2">
+                        <button id="btnMenos-${producto.id}" class="btn btn-outline-secondary" style="width:45px">-</button>
                         <input type="text" value="${producto.cantidad}" id="quantity-${producto.id}" style="width: 45px; text-align: center;" readonly>
-                        <button id="btnMas-${producto.id}" class="btn btn-outline-secondary">+</button>
+                        <button id="btnMas-${producto.id}" class="btn btn-outline-secondary" style="width:45px">+</button>
                     </div>
                 </td>
                 <td id="total-${producto.id}">${producto.moneda} ${producto.precio * producto.cantidad}</td>
@@ -81,6 +81,9 @@ function eliminarProducto(id) {
     if (fila) {
         fila.remove();
     }
+    
+    cargarCarrito();
+
 }
 
 // Cargar los productos al cargar la página
