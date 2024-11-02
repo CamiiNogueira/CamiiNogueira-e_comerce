@@ -301,7 +301,7 @@ body.night .cerrar{
 }
 .night #myForm {
   background-color: #222; 
-
+}
 
 .night .jumbotron {
   background: url("../img/mercado\ \(2\).png");
@@ -317,11 +317,10 @@ body.night .cerrar{
 
 }
 
-.night .table {
-  background-color: black;
+.night .table-hover {
+  color: white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-weight: bold;
-
 }
