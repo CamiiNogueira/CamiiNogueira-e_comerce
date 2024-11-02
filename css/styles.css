@@ -316,10 +316,10 @@ textarea#comment {
   background-color: black!important;
 }
 
-.night .bg-dark {
+.night .table {
+  background-color: black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: white;
   font-weight: bold;
 }
