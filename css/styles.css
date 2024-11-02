@@ -317,11 +317,10 @@ body.night .cerrar{
 
 }
 
-.night .table {
-  background-color: black;
+.night .table-hover {
+  color: white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-weight: bold;
-
 }
