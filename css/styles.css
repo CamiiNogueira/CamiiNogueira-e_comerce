@@ -301,7 +301,6 @@ body.night .cerrar{
 }
 .night #myForm {
   background-color: #222; 
-}
 
 
 .night .jumbotron {
@@ -315,4 +314,14 @@ body.night .cerrar{
 
 .night .bg-light {
   background-color: black!important;
+
+}
+
+.night .table {
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-weight: bold;
+
 }
