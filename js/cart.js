@@ -34,3 +34,5 @@ function cargarCarrito() {
 window.onload = function() {
     cargarCarrito();
 };
+
+
