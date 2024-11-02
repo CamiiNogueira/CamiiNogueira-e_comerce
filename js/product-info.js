@@ -147,6 +147,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+
+//sección de compra
 const btnComprar = document.getElementById('btnComprar');
 const btnMenos = document.getElementById('btnMenos');
 const btnMas = document.getElementById('btnMas');
@@ -158,17 +160,13 @@ btnComprar.addEventListener('click', () => {
     
     if (isNaN(cantidad) || cantidad <= 0) {
 
-    alert('Por favor, ingresa una cantidad válida.');
-    return;
-
         Swal.fire({
             icon: "error",
-            title: "Oops...",
+            title:"Oops...",
             text: 'Por favor, ingresa una cantidad válida.',
             footer: '<a href="#">Why do I have this issue?</a>'
         });
         return;
-
     }
     
     const producto = {
