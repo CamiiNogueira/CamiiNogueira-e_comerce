@@ -34,14 +34,17 @@ function cargarCarrito() {
 
 // Cargar los productos al cargar la página
 window.onload = function() {
+    let monedaSeleccionada = localStorage.getItem('monedaSeleccionada') || 'USD';
+    document.getElementById(monedaSeleccionada === 'USD' ? 'dolares' : 'pesos').checked = true;
     cargarCarrito();
     document.querySelectorAll('input[name="opcion"]').forEach((input) => {
         input.addEventListener('change', calcularTotal);
     });
 };
 
-
 function calcularTotal(){
+    let moneda = document.getElementById('dolares').checked ? 'USD' : 'UYU';
+    localStorage.setItem('monedaSeleccionada', moneda);
     if (document.getElementById('pesos').checked) {
         let total = 0;
         carrito.forEach(producto => {
