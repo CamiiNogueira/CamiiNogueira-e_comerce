@@ -113,11 +113,23 @@ document.getElementById("ratingForm").addEventListener("submit", function(event)
 
         // Añadir el nuevo comentario a los datos ya cargados
         commentsData.push(newComment);
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Agregaste un comentario!",
+            showConfirmButton: false,
+            timer: 1500
+          });
 
         // Llamar a showComments para actualizar la vista
         showComments(commentsData);
     } else {
-        alert("Debes iniciar sesión para realizar un comentario.")
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debes iniciar sesión para realizar un comentario.",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
     }
 });
 
@@ -145,8 +157,18 @@ btnComprar.addEventListener('click', () => {
     const cantidad = parseInt(cantidadInput.value);
     
     if (isNaN(cantidad) || cantidad <= 0) {
+
     alert('Por favor, ingresa una cantidad válida.');
     return;
+
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: 'Por favor, ingresa una cantidad válida.',
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+        return;
+
     }
     
     const producto = {
