@@ -28,9 +28,9 @@ thead {
 }
 
 .compra {
-    width: 25%;
-    height: 35%;
-    border: 2px solid;
+    width: 28%;
+    height: 30%;
+    border: 1px solid;
     border-radius: 8px;
 }
 
@@ -41,7 +41,7 @@ thead {
 .compra-input label {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: large;
+    font-size: medium;
 }
 
 .compra-input input {
@@ -64,8 +64,23 @@ thead {
 
 .continue-btn, .checkout-btn {
     border-radius: 8px;
-    padding: 12px;
-    margin-left: 8px;
+    padding: 10px;
+    margin-left: 5.5px;
+    margin-bottom: 10px;
+}
+
+.checkout-btn {
+    background-color: rgb(6, 164, 226);
+    color: white;
+    border-color: rgba(0, 132, 255, 0.658);
+    font-weight: 500;
+}
+
+.continue-btn {
+    background-color: white;
+    color: rgb(6, 164, 226);
+    border-color: rgba(0, 132, 255, 0.658);
+    font-weight: bold;
 }
 
 .btn-radio {
@@ -73,19 +88,20 @@ thead {
 }
 
 .btn-radio label {
-    margin: 10px;
+    margin: 12px;
+    margin-bottom: 20px;
 }
 
-.quantity-control {
+.input-group {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 8px;
     border: 1px solid rgba(150, 150, 150, 0.822);
-    width: 60%;
+    width: 80%;
     height: 30px;
     background-color: white;
-    margin-left: 50px;
+    margin-left: 12px;
 }
 
 .quantity-btn {
@@ -102,8 +118,8 @@ thead {
     background-color: #ccc;
 }
 
-.quantity-control input {
-    width: 50px;
+.input-group input {
+    width: 40px;
     height: 28px;
     text-align: center;
     font-size: 16px;
@@ -116,3 +132,97 @@ thead {
     border: none;
     border-radius: 8px;
 }
+
+@media (max-width: 700px) {
+    .contenedor { 
+        flex-direction: column; 
+        align-items: center; 
+    } 
+    .table-responsive { 
+        width: 100%; 
+    } 
+    .input-group me-2{
+       width: 10px; 
+    } 
+    .compra{
+        width:100%;
+    }
+    .carrito { 
+        width: 100%; 
+        position: static; 
+        margin: 0; 
+    }
+    .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centrar elementos */
+        border-radius: 8px;
+        width: 100px; /* Ajusta el ancho si necesitas */
+        height: 30px;
+        gap: 5px; /* Espacio entre los elementos */
+    }
+    
+    .quantity-btn {
+        border: none;
+        padding: 2px 8px;
+        font-size: 16px;
+        border-radius: 4px; 
+    }
+    
+    .input-group input {
+        width: 40px;
+        height: 28px;
+        text-align: center;
+        font-size: 16px;
+        border: none;
+    }
+    
+}
+
+@media (max-width:400px){
+    .contenedor { 
+        flex-direction: column; 
+        align-items: center; 
+    } 
+    .table-responsive { 
+        width: 100%; 
+    } 
+    .input-group me-2{
+        width: 10px; 
+    } 
+    .compra{
+        width:100%;
+
+    }
+    .carrito { 
+        width: 100%; 
+        position: static; 
+        margin: 0; 
+    }
+    .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centrar elementos */
+        border-radius: 8px;
+        width: 100px; /* Ajusta el ancho si necesitas */
+        height: 30px;
+        gap: 5px; /* Espacio entre los elementos */
+    }
+    
+    .quantity-btn {
+        border: none;
+        padding: 2px 8px;
+        font-size: 16px;
+        border-radius: 4px;
+    }
+    
+    .input-group input {
+        width: 40px;
+        height: 28px;
+        text-align: center;
+        font-size: 16px;
+        border: none;
+    }    
+
+}
+

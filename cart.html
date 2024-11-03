@@ -10,6 +10,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/cart.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body>
@@ -38,7 +40,7 @@
         Usuario
       </button>
       <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-        <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+        <li><a class="dropdown-item" href="cart.html">Mi carrito<span id="cart-badge" class="position top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span></a></li>
         <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a id="logout" class="dropdown-item" href="#">Cerrar sesión</a></li>
@@ -52,8 +54,9 @@
       </svg></h2>
     </div>
     <div class="contenedor">
+       <!-- primer tabla con productos -->
       <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover table">
           <thead>
               <tr>
                   <th>Artículo</th>
@@ -66,8 +69,9 @@
           </thead>
           <tbody id="cart-items">
           </tbody>
-      </table>
+        </table>
       </div>
+       <!-- segunda tabla de compra -->
       <div class="compra">
         <h4>Resumen de compra</h4>
         <div class="compra-input">
@@ -91,10 +95,10 @@
             UYU
           </label><br>
         </div>
-          <button class="continue-btn">Continuar comprando</button>
-          <button class="checkout-btn">Realizar Compra</button>
+          <button id="continue-btn" class="continue-btn">Continuar comprando</button>
+          <button id="checkout-btn" class="checkout-btn">Realizar Compra</button>
         
-    </div>
+      </div>
     </div>
   </main>
   <footer class="text-muted">
