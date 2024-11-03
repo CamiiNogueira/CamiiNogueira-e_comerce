@@ -3,7 +3,6 @@ const API_URL = "https://japceibal.github.io/emercado-api/products";
 function showData(product) {
     const productInfoDiv = document.getElementById('product-info');
     productInfoDiv.innerHTML = `
-    <div class="card-body">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -38,7 +37,6 @@ function showData(product) {
             <p class="descripcion">${product.description}</p>
             <p class="vendidos">${product.soldCount} productos vendidos.</p>
         </div>
-    </div>   
     `;
 
     const relatedProductsDiv = document.getElementById('related-products-container');
@@ -119,7 +117,7 @@ document.getElementById("ratingForm").addEventListener("submit", function(event)
             title: "Agregaste un comentario!",
             showConfirmButton: false,
             timer: 1500
-          });
+        });
 
         // Llamar a showComments para actualizar la vista
         showComments(commentsData);
