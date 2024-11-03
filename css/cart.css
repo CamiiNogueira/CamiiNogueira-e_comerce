@@ -142,7 +142,7 @@ thead {
         width: 100%; 
     } 
     .input-group me-2{
-       width: 50px; 
+       width: 10px; 
     } 
     .compra{
         width:100%;
@@ -152,6 +152,31 @@ thead {
         position: static; 
         margin: 0; 
     }
+    .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centrar elementos */
+        border-radius: 8px;
+        width: 100px; /* Ajusta el ancho si necesitas */
+        height: 30px;
+        gap: 5px; /* Espacio entre los elementos */
+    }
+    
+    .quantity-btn {
+        border: none;
+        padding: 2px 8px;
+        font-size: 16px;
+        border-radius: 4px; 
+    }
+    
+    .input-group input {
+        width: 40px;
+        height: 28px;
+        text-align: center;
+        font-size: 16px;
+        border: none;
+    }
+    
 }
 
 @media (max-width:400px){
@@ -162,6 +187,9 @@ thead {
     .table-responsive { 
         width: 100%; 
     } 
+    .input-group me-2{
+        width: 10px; 
+    } 
     .compra{
         width:100%;
 
@@ -171,5 +199,30 @@ thead {
         position: static; 
         margin: 0; 
     }
+    .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centrar elementos */
+        border-radius: 8px;
+        width: 100px; /* Ajusta el ancho si necesitas */
+        height: 30px;
+        gap: 5px; /* Espacio entre los elementos */
+    }
+    
+    .quantity-btn {
+        border: none;
+        padding: 2px 8px;
+        font-size: 16px;
+        border-radius: 4px;
+    }
+    
+    .input-group input {
+        width: 40px;
+        height: 28px;
+        text-align: center;
+        font-size: 16px;
+        border: none;
+    }    
+
 }
 
