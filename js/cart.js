@@ -1,6 +1,7 @@
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
 // Función para cargar los productos desde localStorage y mostrarlos en la tabla
 function cargarCarrito() {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let tabla = document.getElementById('cart-items');
 
     // Limpiar la tabla antes de agregar los productos
@@ -10,7 +11,6 @@ function cargarCarrito() {
         // Si el carrito está vacío, mostrar mensaje
         tabla.innerHTML = `
             <tr>
-                <td colspan="6" style="text-align: center;">Aún no tienes productos en el carrito</td>
             </tr>
         `;
     } else {
@@ -64,6 +64,7 @@ function agregarFilaProducto(producto) {
     document.getElementById(`delete-${producto.id}`).addEventListener('click', function() {
         eliminarProducto(producto.id);
     });
+    calcularTotal();
 }
 
 // Función para actualizar cantidad y total
@@ -107,7 +108,44 @@ function eliminarProducto(id) {
 
 // Cargar los productos al cargar la página
 window.onload = function() {
+    let monedaSeleccionada = localStorage.getItem('monedaSeleccionada') || 'USD';
+    document.getElementById(monedaSeleccionada === 'USD' ? 'dolares' : 'pesos').checked = true;
     cargarCarrito();
+    document.querySelectorAll('input[name="opcion"]').forEach((input) => {
+        input.addEventListener('change', calcularTotal);
+    });
+};
+
+function calcularTotal(){
+    let moneda = document.getElementById('dolares').checked ? 'USD' : 'UYU';
+    localStorage.setItem('monedaSeleccionada', moneda);
+    if (document.getElementById('pesos').checked) {
+        let total = 0;
+        carrito.forEach(producto => {
+            let precio = producto.precio;
+            if (producto.moneda != 'UYU'){
+                precio *= 41;
+            }
+            let subtotal = precio * producto.cantidad;
+            total += subtotal;
+        });
+        document.getElementById('total').value = 'UYU ' + total;
+        document.getElementById('subtotal').value = 'UYU ' + total;
+    }
+    else{
+        document.getElementById('dolares').checked = true;
+        let total = 0;
+        carrito.forEach(producto => {
+            let precio = producto.precio;
+            if (producto.moneda != 'USD'){
+                precio *= 0.02;
+            }
+            let subtotal = precio * producto.cantidad;
+            total += subtotal;
+        });
+        document.getElementById('total').value = 'USD ' + total;
+        document.getElementById('subtotal').value = 'USD ' + total;
+    }
 };
 
 document.getElementById("continue-btn").addEventListener("click", function(){
@@ -136,4 +174,3 @@ document.getElementById("checkout-btn").addEventListener("click", function(){
         cargarCarrito();
     }
 });
-
