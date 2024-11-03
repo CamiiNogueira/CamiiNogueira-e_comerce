@@ -197,11 +197,3 @@ btnMas.addEventListener('click', () => {
     cantidad++;
     cantidadInput.value = cantidad;
 });
-function calcularTotal() {
-}
-window.onload = () => {
-    calcularTotal();
-};
-btnComprar.addEventListener('click', () => {
-calcularTotal(); 
-});
