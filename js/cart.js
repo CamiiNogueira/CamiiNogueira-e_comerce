@@ -1,7 +1,6 @@
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
 // Función para cargar los productos desde localStorage y mostrarlos en la tabla
 function cargarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let tabla = document.getElementById('cart-items');
 
     // Limpiar la tabla antes de agregar los productos
@@ -11,6 +10,7 @@ function cargarCarrito() {
         // Si el carrito está vacío, mostrar mensaje
         tabla.innerHTML = `
             <tr>
+                <td colspan="6" style="text-align: center;">Aún no tienes productos en el carrito</td>
             </tr>
         `;
     } else {
@@ -18,6 +18,7 @@ function cargarCarrito() {
             agregarFilaProducto(producto);
         });
     }
+    calcularTotal();
 }
 
 // Función para agregar una fila para un producto en la tabla
@@ -64,7 +65,6 @@ function agregarFilaProducto(producto) {
     document.getElementById(`delete-${producto.id}`).addEventListener('click', function() {
         eliminarProducto(producto.id);
     });
-    calcularTotal();
 }
 
 // Función para actualizar cantidad y total
@@ -82,6 +82,7 @@ function actualizarCantidad(producto) {
         carrito[index].cantidad = producto.cantidad;
     }
     localStorage.setItem('carrito', JSON.stringify(carrito));
+    calcularTotal();
 }
 
 // Función para eliminar un producto del carrito
@@ -93,6 +94,7 @@ function eliminarProducto(id) {
 
     // Guardar el carrito actualizado en el localStorage
     localStorage.setItem('carrito', JSON.stringify(carrito));
+    calcularTotal();
 
     // Eliminar la fila del producto en el DOM
     let fila = document.getElementById(`fila-${id}`);
@@ -116,7 +118,36 @@ window.onload = function() {
     });
 };
 
+
+document.getElementById("continue-btn").addEventListener("click", function(){
+    window.location.href = "categories.html";
+});
+
+document.getElementById("checkout-btn").addEventListener("click", function(){
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    if (carrito.length === 0) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Seleccione un producto para realizar la compra",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    } else {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Compra realizada con éxito!!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        localStorage.removeItem("carrito");
+        cargarCarrito();
+    }
+});
+
 function calcularTotal(){
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let moneda = document.getElementById('dolares').checked ? 'USD' : 'UYU';
     localStorage.setItem('monedaSeleccionada', moneda);
     if (document.getElementById('pesos').checked) {
@@ -147,30 +178,3 @@ function calcularTotal(){
         document.getElementById('subtotal').value = 'USD ' + total;
     }
 };
-
-document.getElementById("continue-btn").addEventListener("click", function(){
-    window.location.href = "categories.html";
-});
-
-document.getElementById("checkout-btn").addEventListener("click", function(){
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    if (carrito.length === 0) {
-        Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "Seleccione un producto para realizar la compra",
-            showConfirmButton: false,
-            timer: 1500
-        });
-    } else {
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Compra realizada con éxito!!",
-            showConfirmButton: false,
-            timer: 1500
-        });
-        localStorage.removeItem("carrito");
-        cargarCarrito();
-    }
-});

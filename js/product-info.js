@@ -117,7 +117,7 @@ document.getElementById("ratingForm").addEventListener("submit", function(event)
             title: "Agregaste un comentario!",
             showConfirmButton: false,
             timer: 1500
-          });
+        });
 
         // Llamar a showComments para actualizar la vista
         showComments(commentsData);
