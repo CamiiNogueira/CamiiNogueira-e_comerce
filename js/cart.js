@@ -178,3 +178,25 @@ function calcularTotal(){
         document.getElementById('subtotal').value = 'USD ' + total;
     }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionamos los elementos que vamos a manejar
+    const creditCardOption = document.getElementById('creditCard');
+    const debitCardOption = document.getElementById('debitCard');
+    const cashOption = document.getElementById('cash');
+    const cardDetailsForm = document.getElementById('card-details-form');
+
+    // Función para mostrar/ocultar el formulario de la tarjeta
+    function toggleCardDetails() {
+        if (creditCardOption.checked || debitCardOption.checked) {
+            cardDetailsForm.style.display = 'block'; // Mostramos el formulario
+        } else {
+            cardDetailsForm.style.display = 'none';  // Ocultamos el formulario
+        }
+    }
+
+    // Agregamos eventos a los radio buttons para controlar la visibilidad
+    creditCardOption.addEventListener('change', toggleCardDetails);
+    debitCardOption.addEventListener('change', toggleCardDetails);
+    cashOption.addEventListener('change', toggleCardDetails);
+});

@@ -226,3 +226,7 @@ thead {
 
 }
 
+.modal-header {
+    background-color: rgb(64, 144, 209);
+    color: white;
+}
