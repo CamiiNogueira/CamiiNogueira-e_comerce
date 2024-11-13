@@ -176,8 +176,12 @@
           <label for="subtotal">Subtotal:</label><br>
           <input type="text" name="subtotal" id="subtotal" value="0" readonly><br>
 
-          <label for="envio">Envio:</label><br>
-          <input type="text" name="envio" id="envio" value="USD 0" readonly><br>
+          <label for="envio">Tipo de envio:</label><br>
+          <select id="envio" class="form-select">
+            <option value="premium">Premium 2 a 5 días (15%)</option>
+            <option value="express">Express 5 a 8 días (7%)</option>
+            <option value="standard">Standard 12 a 15 días (5%)</option>
+          </select>
 
           <label for="total">Total:</label><br>
           <input type="text" name="total" id="total" value="0" readonly><br>
