@@ -53,6 +53,17 @@ thead {
     height: 35px;
 }
 
+.form-select {
+    text-align: center;
+    width: 90%;
+    height: 35px;
+    margin-bottom: 20px;
+    margin-left: 17px;
+    border: 2px solid;
+    border-color: rgba(141, 140, 140, 0.562);
+    border-radius: 8px;
+}
+
 .compra h4 {
     background-color: rgb(64, 144, 209);
     color: white;
