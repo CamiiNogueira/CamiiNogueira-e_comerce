@@ -22,12 +22,6 @@ nav a {
   user-select: none;
 }
 
-@media (min-width: 600px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
 .jumbotron {
   height: 50vh;
   padding: 5em inherit;
@@ -39,19 +33,6 @@ nav a {
   background-repeat: no-repeat;
   color: black;
   font-weight: bold;
-}
-
-@media (max-width: 500px){ /* Media para ajustar la imagen de e-commerce en pantallas pequeñas*/
-  .jumbotron { 
-    height: 18vh;
-  }
-}
-
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
 }
 
 .jumbotron p:last-child {
@@ -195,7 +176,24 @@ a.custom-card:hover {
   color: orange;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 500px){ /* Media para ajustar la imagen de e-commerce en pantallas pequeñas*/
+  .jumbotron { 
+    height: 18vh;
+  }
+}
+
+@media (min-width: 700px) {
+  .jumbotron {
+    width: 100%;
+    height: 50vh;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 1500px) {
   .user-button {
     position: absolute;
     right: 1rem;
@@ -213,6 +211,7 @@ nav {
 #user-name {
   font-size: 18px;
 }
+
 /* Estilos para Modo Noche */
 .night {
   background-color: #121212;
