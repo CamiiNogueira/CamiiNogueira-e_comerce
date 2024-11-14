@@ -80,10 +80,13 @@
 
           <label for="envio">Tipo de envio:</label><br>
           <select id="envio" class="form-select">
-            <option value="premium">Premium 2 a 5 días (15%)</option>
-            <option value="express">Express 5 a 8 días (7%)</option>
-            <option value="standard">Standard 12 a 15 días (5%)</option>
+            <option name="opcion" value="0.15">Premium 2 a 5 días (15%)</option>
+            <option name="opcion" value="0.7">Express 5 a 8 días (7%)</option>
+            <option name="opcion" value="0.5">Standard 12 a 15 días (5%)</option>
           </select>
+
+          <label for="costoEnvio">Costo de envio:</label><br>
+          <input type="text" name="costoEnvio" id="costoEnv" value="0" readonly><br>
 
           <label for="total">Total:</label><br>
           <input type="text" name="total" id="total" value="0" readonly><br>
