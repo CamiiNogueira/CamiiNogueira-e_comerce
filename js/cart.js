@@ -128,7 +128,7 @@ document.getElementById("btn-finalizar").addEventListener("click", function(){
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     if (carrito.length === 0) {
         Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "error",
             title: "Seleccione un producto para realizar la compra",
             showConfirmButton: false,
@@ -136,7 +136,7 @@ document.getElementById("btn-finalizar").addEventListener("click", function(){
         });
     } else { 
         Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Compra realizada con éxito!!",
             showConfirmButton: false,
