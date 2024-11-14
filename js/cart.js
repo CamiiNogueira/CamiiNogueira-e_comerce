@@ -123,7 +123,8 @@ document.getElementById("continue-btn").addEventListener("click", function(){
     window.location.href = "categories.html";
 });
 
-document.getElementById("checkout-btn").addEventListener("click", function(){
+
+document.getElementById("btn-finalizar").addEventListener("click", function(){ 
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     if (carrito.length === 0) {
         Swal.fire({
@@ -133,7 +134,7 @@ document.getElementById("checkout-btn").addEventListener("click", function(){
             showConfirmButton: false,
             timer: 1500
         });
-    } else {
+    } else { 
         Swal.fire({
             position: "top-end",
             icon: "success",
@@ -145,6 +146,8 @@ document.getElementById("checkout-btn").addEventListener("click", function(){
         cargarCarrito();
     }
 });
+
+
 
 function calcularTotal(){
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -179,6 +182,7 @@ function calcularTotal(){
     }
 };
 
+//Segunda fase del modal, forma de pago
 document.addEventListener('DOMContentLoaded', function() {
     // Seleccionamos los elementos que vamos a manejar
     const creditCardOption = document.getElementById('creditCard');
