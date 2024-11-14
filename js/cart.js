@@ -123,7 +123,7 @@ document.getElementById("continue-btn").addEventListener("click", function(){
     window.location.href = "categories.html";
 });
 
-
+//Alertas relacionadas al btn del modal. Si tiene o no productos.
 document.getElementById("btn-finalizar").addEventListener("click", function(){ 
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     if (carrito.length === 0) {
