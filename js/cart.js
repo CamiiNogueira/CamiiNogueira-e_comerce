@@ -65,6 +65,7 @@ function agregarFilaProducto(producto) {
     document.getElementById(`delete-${producto.id}`).addEventListener('click', function() {
         eliminarProducto(producto.id);
     });
+   
 }
 
 // Función para actualizar cantidad y total
@@ -83,6 +84,7 @@ function actualizarCantidad(producto) {
     }
     localStorage.setItem('carrito', JSON.stringify(carrito));
     calcularTotal();
+    updateCartBadge();
 }
 
 // Función para eliminar un producto del carrito
@@ -106,6 +108,7 @@ function eliminarProducto(id) {
     if (carrito.length === 0) {
         cargarCarrito();
     }
+    updateCartBadge();
 }
 
 // Cargar los productos al cargar la página
@@ -185,3 +188,4 @@ function calcularTotal(){
         document.getElementById('total').value = "USD " + (subtotal + costo)
     }
 };
+
