@@ -204,3 +204,4 @@ document.addEventListener('DOMContentLoaded', function() {
     debitCardOption.addEventListener('change', toggleCardDetails);
     cashOption.addEventListener('change', toggleCardDetails);
 });
+

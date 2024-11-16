@@ -237,7 +237,131 @@ thead {
 
 }
 
-.modal-header {
-    background-color: rgb(64, 144, 209);
-    color: white;
-}
+
+/* Estilos generales del modal */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+  }
+  .modal-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+  }
+  .modal-header .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  .modal-body {
+    padding-top: 20px;
+  }
+  .modal-footer {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+    text-align: center;
+  }
+  /* Estilo para el contenido de la dirección de envío */
+  .form-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #555;
+  }
+  .form-control {
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #4e73df;
+    outline: none;
+  }
+  
+  .nav-tabs .nav-link {
+    border-radius: 20px;
+    font-weight: 500;
+    color: #4e73df;
+    padding: 10px 15px;
+  }
+  .nav-tabs .nav-link:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .tab-content {
+    margin-top: 20px;
+  }
+  
+  /* Estilos para los botones de "Finalizar" y "Cancelar" */
+  .modal-footer .btn {
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 400px; 
+    display: block;
+    margin: 10px auto;
+    border: 2px solid transparent; 
+    transition: all 0.3s ease;
+  }
+  /* Botón "Finalizar compra" */
+  #btn-finalizar {
+    background-color: #4e73df;
+    border: 2px solid #4e73df; 
+  }
+  #btn-finalizar:hover {
+    background-color: #3665c1; 
+    color: #fff;
+    border-color: #3665c1;
+    transform: translateY(-2px); 
+  }
+  #btn-finalizar:focus {
+    outline: none;
+    box-shadow: 0 0 6px rgba(78, 115, 223, 0.5); 
+  }
+  /* Botón "Cancelar" */
+  .btn-cancelar {
+    background-color: transparent;
+    color: #888; 
+    border: 2px solid #ddd;
+  }
+  .btn-cancelar:hover {
+    background-color: #f8f9fc; 
+    color: #333;
+    border-color: #ddd;
+    transform: translateY(-2px); 
+  }
+  .btn-cancelar:focus {
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1); 
+  }
+  .btn:hover {
+    cursor: pointer;
+    transition: all 0.2s ease; 
+  }
+  .btn:focus {
+    outline: none; 
+  }
+  /* Estilos adicionales para el modal (fondo y overlay) */
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+  }
+  /* Estilo para los inputs de datos de la tarjeta */
+  #card-details-form input {
+    margin-bottom: 15px;
+  }
+  #card-details-form h5 {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
