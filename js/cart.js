@@ -18,6 +18,7 @@ function cargarCarrito() {
             agregarFilaProducto(producto);
         });
     }
+    document.getElementById("checkout-btn").disabled = !(carrito.length > 0);
     calcularTotal();
 }
 
@@ -128,28 +129,6 @@ document.getElementById("continue-btn").addEventListener("click", function(){
     window.location.href = "categories.html";
 });
 
-document.getElementById("checkout-btn").addEventListener("click", function(){
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    if (carrito.length === 0) {
-        Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "Seleccione un producto para realizar la compra",
-            showConfirmButton: false,
-            timer: 1500
-        });
-    } else {
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Compra realizada con éxito!!",
-            showConfirmButton: false,
-            timer: 1500
-        });
-        localStorage.removeItem("carrito");
-        cargarCarrito();
-    }
-});
 
 function calcularTotal(){
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -189,3 +168,146 @@ function calcularTotal(){
     }
 };
 
+//Segunda fase del modal, forma de pago
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionamos los elementos que vamos a manejar
+    const creditCardOption = document.getElementById('creditCard');
+    const debitCardOption = document.getElementById('debitCard');
+    const cashOption = document.getElementById('cash');
+    const cardDetailsForm = document.getElementById('card-details-form');
+
+    // Función para mostrar/ocultar el formulario de la tarjeta
+    function toggleCardDetails() {
+        if (creditCardOption.checked || debitCardOption.checked) {
+            cardDetailsForm.style.display = 'block'; // Mostramos el formulario
+        } else {
+            cardDetailsForm.style.display = 'none';  // Ocultamos el formulario
+        }
+    }
+
+    // Agregamos eventos a los radio buttons para controlar la visibilidad
+    creditCardOption.addEventListener('change', toggleCardDetails);
+    debitCardOption.addEventListener('change', toggleCardDetails);
+    cashOption.addEventListener('change', toggleCardDetails);
+});
+
+// Boton de finalizar compra
+document.addEventListener("DOMContentLoaded", function () {
+    const btnFinalizar = document.getElementById("btn-finalizar");
+    btnFinalizar.addEventListener("click", function (event) {
+        event.preventDefault(); 
+
+        let valid = true; 
+        let errorMessages = []; 
+        const departamento = document.getElementById("departamento");
+        const localidad = document.getElementById("localidad");
+        const calle = document.getElementById("calle");
+        const numero = document.getElementById("numero");
+        const esquina = document.getElementById("esquina");
+        [departamento, localidad, calle, numero, esquina].forEach(field => {
+            field.classList.remove('is-invalid');
+        });
+
+        // Datos de direccion
+        if (!departamento.value.trim()) {
+            departamento.classList.add("is-invalid");
+            valid = false;
+        }
+        if (!localidad.value.trim()) {
+            localidad.classList.add("is-invalid");
+            valid = false;
+        }
+        if (!calle.value.trim()) {
+            calle.classList.add("is-invalid");
+            valid = false;
+        }
+        if (!numero.value.trim()) {
+            numero.classList.add("is-invalid");
+            valid = false;
+        }
+        if (!esquina.value.trim()) {
+            esquina.classList.add("is-invalid");
+            valid = false;
+        }
+
+        // Validacion de forma de pago
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+        if (!paymentMethod) {
+            errorMessages.push("Por favor, seleccione un método de pago.");
+            valid = false;
+        }
+
+        // Validacion: credito y debito
+        if (paymentMethod && (paymentMethod.value === "creditCard" || paymentMethod.value === "debitCard")) {
+            const cardNumber = document.getElementById("cardNumber");
+            const cardName = document.getElementById("cardName");
+            const expirationDate = document.getElementById("expirationDate");
+            const cvv = document.getElementById("cvv");
+            [cardNumber, cardName, expirationDate, cvv].forEach(field => {
+                field.classList.remove('is-invalid');
+            });
+
+            // Validar campos de tarjeta
+            if (!cardNumber.value.match(/^\d{16}$/)) {
+                cardNumber.classList.add("is-invalid");
+                valid = false;
+            }
+            if (!cardName.value.trim()) {
+                cardName.classList.add("is-invalid");
+                valid = false;
+            }
+            
+            if (!expirationDate.value.match(/^\d{2}\/\d{2}$/)) {
+                expirationDate.classList.add("is-invalid");
+                valid = false;
+            } else {
+                // Fecha valida
+                const [month, year] = expirationDate.value.split("/").map(num => parseInt(num, 10));
+                const currentDate = new Date();
+                const currentMonth = currentDate.getMonth() + 1; 
+                const currentYear = currentDate.getFullYear() % 100; 
+                if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                    expirationDate.classList.add("is-invalid");
+                    valid = false;
+                    errorMessages.push("La tarjeta ha expirado.");
+                }
+                if (month < 1 || month > 12) {
+                    expirationDate.classList.add("is-invalid");
+                    valid = false;
+                    errorMessages.push("El mes de expiración no es válido.");
+                }
+            }
+            if (!cvv.value.match(/^\d{3}$/)) {
+                cvv.classList.add("is-invalid");
+                valid = false;
+            }
+        }
+
+        // Mensajes de exito o de error
+        if (valid) {
+            localStorage.removeItem("carrito");
+            cargarCarrito();
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "¡Compra realizada con éxito!",
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                // Cierre del modal 
+                const modalElement = document.getElementById("staticBackdrop"); 
+                const modal = bootstrap.Modal.getInstance(modalElement); 
+                modal.hide(); 
+            });
+        } else {
+            // Alertas iguales pare errores 
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Por favor, complete todos los campos correctamente.",
+                text: errorMessages.length > 0 ? errorMessages.join("\n") : '', 
+                showConfirmButton: true
+            });
+        }
+    });
+});

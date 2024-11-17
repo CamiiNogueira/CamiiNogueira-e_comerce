@@ -112,7 +112,7 @@ document.getElementById("ratingForm").addEventListener("submit", function(event)
         // Añadir el nuevo comentario a los datos ya cargados
         commentsData.push(newComment);
         Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Agregaste un comentario!",
             showConfirmButton: false,
