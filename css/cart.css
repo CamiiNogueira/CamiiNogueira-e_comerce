@@ -174,7 +174,7 @@ thead {
     border: none;
     border-radius: 8px;
 }
-
+/*Responsive*/
 @media (max-width: 700px) {
     .contenedor { 
         flex-direction: column; 
