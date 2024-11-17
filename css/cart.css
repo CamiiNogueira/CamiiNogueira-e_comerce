@@ -1,3 +1,33 @@
+/*Animación carrito*/
+ 
+.carrito {
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+  
+.bi-cart4 {
+    display: inline-block;
+    margin-left: 8px;
+    animation: none;
+}
+  
+  /* Definimos la animación */
+@keyframes moveAndReturn {
+    0% { transform: translateX(0);opacity: 1; }
+    50% { transform: translateX(500px); }
+    100% { transform: translateX(0); opacity: 0; }
+}
+  
+  /* Aplicamos la animación en hover y forzamos el reinicio */
+.carrito:hover .bi-cart4{
+    animation: moveAndReturn 0.9s ease;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+}  
+  
+/*Estilos primer tabla */
 .contenedor {
     display: flex; /* Utilizar flexbox para distribuir los elementos */
     justify-content: space-between; /* Distribuir los elementos con espacio entre ellos */
@@ -27,6 +57,7 @@ thead {
     color: white;
 }
 
+/*Estilos de la segunda tabla de compra*/
 .compra {
     width: 28%;
     height: 30%;
@@ -235,6 +266,7 @@ thead {
         border: none;
     }    
 
+    
 }
 
 
