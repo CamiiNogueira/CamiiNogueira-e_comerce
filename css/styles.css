@@ -329,3 +329,36 @@ body.night .cerrar{
   background-repeat: no-repeat;
   font-weight: bold;
 }
+
+.night .modal-content {
+  border-radius: 10px;
+  box-shadow: 0 2px 15px white;
+  background-color: black;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+.night .modal-header {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+.night .modal-header .modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.night .form-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+}
+
+.night .form-control {
+  border-radius: 30px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
