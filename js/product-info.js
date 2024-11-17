@@ -126,7 +126,6 @@ document.getElementById("ratingForm").addEventListener("submit", function(event)
             icon: "error",
             title: "Oops...",
             text: "Debes iniciar sesión para realizar un comentario.",
-            footer: '<a href="#">Why do I have this issue?</a>'
         });
     }
 });
@@ -162,7 +161,6 @@ btnComprar.addEventListener('click', () => {
             icon: "error",
             title:"Oops...",
             text: 'Por favor, ingresa una cantidad válida.',
-            footer: '<a href="#">Why do I have this issue?</a>'
         });
         return;
     }
