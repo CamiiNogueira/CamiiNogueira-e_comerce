@@ -187,5 +187,6 @@ function calcularTotal(){
         document.getElementById('costoEnv').value = 'USD ' + costo;
         document.getElementById('total').value = "USD " + (subtotal + costo)
     }
+    
 };
 
