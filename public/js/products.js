@@ -91,7 +91,7 @@ let allProducts = [];
 
 document.addEventListener("DOMContentLoaded", function(e){
     const categoriaId = localStorage.getItem("catID");
-    getJSONData(`${PRODUCTS_URL}/${categoriaId}.json`).then(function(resultObj){
+    getJSONData(`${PRODUCTS_URL}${categoriaId}.json`).then(function(resultObj){
         if (resultObj.status === "ok"){
             categoria = resultObj.data.catName;
             allProducts = resultObj.data.products; // Guardamos los productos en la variable global
