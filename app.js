@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 3000; // Puedes cambiar este puerto si es necesario
+const port = 3000;
 const path = require('path');
-const fs = require("fs");
+const jwt = require('jsonwebtoken'); // Importamos la librería
+const fs = require('fs');
+
+// Clave secreta para firmar los tokens
+const SECRET_KEY = "tuClaveSecreta123";
 
 // Middleware para manejar JSON y CORS (opcional para desarrollo local)
 app.use(express.json());
@@ -11,6 +15,30 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
+});
+
+// Endpoint POST /login
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // Validación de usuario y contraseña (sustituir por un sistema real)
+    if (username === 'admin' && password === '1234') {
+        const token = jwt.sign({ username }, SECRET_KEY); // Generar token
+        res.json({ message: 'Login exitoso', token });
+    } else {
+        res.status(401).json({ message: 'Credenciales inválidas' });
+    }
+});
+
+// Middleware de autorización
+app.use("/emercado-api", (req, res, next) => {
+    try {
+        const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
+        console.log(decoded);
+        next();
+    } catch (err) {
+        res.status(401).json({ message: "Usuario no autorizado" });
+    }
 });
 
 // Ruta principal
@@ -224,46 +252,4 @@ app.get('/emercado-api/user_cart/25801.json', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor ejecutándose en http://localhost:${port}`);
 });
-
-
-// Punto 3: Instalar en la terminal la librería  jsonwebtoken.
-
-//Luego el endpoint de autenticación
-
-//const jwt = require('jsonwebtoken');
-//app.post('/login', (req, res) => {
-//    const { username, password } = req.body;
-//
-//  // Esto es un ejemplo básico. Hay que modificarlo y adaptarlo
-//  const users = require('./data/users.json');
-//  const user = users.find(u => u.username === username && u.password === password);
-//
-//  if (user) {
-//      const token = jwt.sign({ id: user.id, username: user.username }, 'secretKey', { expiresIn: '1h' });
-//      res.json({ token });
-//  } else {
-//      res.status(401).json({ message: 'Credenciales inválidas' });
-//    }
-//});
-
-
-//Punto4: Primero se debe crear un middleware
-
-//const authenticateToken = (req, res, next) => {
-//   const token = req.headers['authorization'];
-//
-//    if (!token) return res.sendStatus(403);
-//
-//    jwt.verify(token, 'secretKey', (err, user) => {
-//        if (err) return res.sendStatus(403);
-//        req.user = user;
-//        next();
-//    });
-//};
-
-//Se aplica lo creado a las rutas 
-//app.get('/api/protected', authenticateToken, (req, res) => {
-//    res.json({ message: 'Acceso autorizado', user: req.user });
-//});
-
 
